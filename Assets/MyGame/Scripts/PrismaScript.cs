@@ -6,8 +6,6 @@ public class PrismaScript : MonoBehaviour
 {
 
     [SerializeField] private GameObject[] glowableObjects; 
-
-    public float playerDisplacement = 50f;
     public float glowDuration = 5f;
     public float switchInterval = 7f;
     public float spawnDistance = 10f;
@@ -22,8 +20,6 @@ public class PrismaScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform; 
-
         List<GameObject> glowableList = new List<GameObject>();
         foreach (Transform child in transform)
         {
@@ -34,26 +30,22 @@ public class PrismaScript : MonoBehaviour
         }
         glowableObjects = glowableList.ToArray();
 
+        StartCoroutine(FadeInModel());
+
+        StartCoroutine(ManageGlowEffect());
+
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector3.Distance(player.position, Vector3.zero);
-
-        if (distance >= playerDisplacement && !isFadingIn){
-            StartCoroutine(FadeInModel());
-        }
+        
     }
 
     private IEnumerator FadeInModel()
     {
         isFadingIn = true;
-        StartCoroutine(ManageGlowEffect());
-
-        Vector3 spawnPosition = player.position + player.forward * spawnDistance;
-        transform.position = spawnPosition;
 
         float fadeDuration = 5f;
         float elapsedTime = 0f;
