@@ -10,12 +10,14 @@ public class PrismaScript : MonoBehaviour
     public float playerDisplacement = 50f;
     public float glowDuration = 5f;
     public float switchInterval = 7f;
+    public float spawnDistance = 10f;
     public Material[] emissionMaterials;
 
     public Material metalMaterial;
 
     private List<GameObject> currentGlowingObjects = new List<GameObject>();
     private Transform player; 
+    private bool isFadingIn = false;
 
     // Start is called before the first frame update
     void Start()
@@ -40,20 +42,23 @@ public class PrismaScript : MonoBehaviour
     {
         float distance = Vector3.Distance(player.position, Vector3.zero);
 
-        if (distance >= playerDisplacement){
+        if (distance >= playerDisplacement && !isFadingIn){
             StartCoroutine(FadeInModel());
         }
     }
 
     private IEnumerator FadeInModel()
     {
+        isFadingIn = true;
+        StartCoroutine(ManageGlowEffect());
+
+        Vector3 spawnPosition = player.position + player.forward * spawnDistance;
+        transform.position = spawnPosition;
+
         float fadeDuration = 5f;
         float elapsedTime = 0f;
         Renderer[] renderers = GetComponentsInChildren<Renderer>();
 
-        StartCoroutine(ManageGlowEffect());
-
-        // Fade-in effect
         while (elapsedTime < fadeDuration)
         {
             elapsedTime += Time.deltaTime;
@@ -68,34 +73,30 @@ public class PrismaScript : MonoBehaviour
 
             yield return null;
         }
+
+        isFadingIn = false;
     }
 
     private IEnumerator ManageGlowEffect()
     {
         while (true)
         {
-            // Clear the list of currently glowing objects
             ResetGlowingObjects();
 
-            // Randomly pick objects to glow
             int numObjectsToGlow = Random.Range(1, glowableObjects.Length + 1);
             for (int i = 0; i < numObjectsToGlow; i++)
             {
                 GameObject obj = glowableObjects[Random.Range(0, glowableObjects.Length)];
                 currentGlowingObjects.Add(obj);
                 
-                // Randomly pick an emission material from the array
                 Material randomEmissionMaterial = emissionMaterials[Random.Range(0, emissionMaterials.Length)];
                 SetMaterial(obj, randomEmissionMaterial);
             }
 
-            // Wait for the glow duration
             yield return new WaitForSeconds(glowDuration);
 
-            // Switch back to metal material
             ResetGlowingObjects();
 
-            // Wait for the switch interval before repeating
             yield return new WaitForSeconds(switchInterval);
         }
     }
