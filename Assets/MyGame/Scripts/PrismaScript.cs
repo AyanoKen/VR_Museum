@@ -7,8 +7,8 @@ public class PrismaScript : MonoBehaviour
 
     [SerializeField] private GameObject[] glowableObjects; 
     public float glowDuration = 5f;
-    public float switchInterval = 7f;
-    public float spawnDistance = 10f;
+    public float switchInterval = 2f;
+    
     public Material[] emissionMaterials;
 
     public Material metalMaterial;
