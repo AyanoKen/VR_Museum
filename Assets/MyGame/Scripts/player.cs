@@ -8,6 +8,8 @@ public class player : MonoBehaviour
     public float prismaTrigger = 10f;
     public float prismaRange = 100f;
     public float spawnDistance = 40f;
+    [SerializeField] private float leftOffset = 5f;
+    [SerializeField] private float yOffset = 0.447942f;
 
     private bool prismaSpawned = false; 
     private GameObject spawnedPrisma;
@@ -40,11 +42,14 @@ public class player : MonoBehaviour
         if (objectPrefabs.Length > 0)
         {
             Vector3 forwardSpawnPosition = transform.position + transform.forward * spawnDistance;
+
             Vector3 leftDirection = -transform.right; 
 
-            Vector3 spawnPosition = forwardSpawnPosition + 5f;
+            Vector3 leftOffsetPosition = leftDirection * leftOffset;
 
-            spawnPosition.y += 0.447942f;
+            Vector3 spawnPosition = forwardSpawnPosition + leftOffsetPosition;
+
+            spawnPosition.y += yOffset;
 
             spawnedPrisma = Instantiate(objectPrefabs[0], spawnPosition, Quaternion.identity);
         }
