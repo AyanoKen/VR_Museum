@@ -982,8 +982,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPrefabs:
   - {fileID: 0}
-  prismaTrigger: 50
-  prismaRange: 100
+  prismaTrigger: 10
+  prismaRange: 20
+  spawnDistance: 10
+  leftOffset: 5
+  yOffset: 0.447942
 --- !u!1001 &4653397200047132476
 PrefabInstance:
   m_ObjectHideFlags: 0

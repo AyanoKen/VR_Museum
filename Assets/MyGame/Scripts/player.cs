@@ -6,32 +6,45 @@ public class player : MonoBehaviour
 {
     public GameObject[] objectPrefabs;
     public float prismaTrigger = 10f;
-    public float prismaRange = 100f;
-    public float spawnDistance = 40f;
+    private float initialPrismaTrigger;
+    public float prismaRange = 25f;
+    public float spawnDistance = 20f;
     [SerializeField] private float leftOffset = 5f;
     [SerializeField] private float yOffset = 0.447942f;
 
-    private bool prismaSpawned = false; 
+    private bool artifactSpawned = false; 
     private GameObject spawnedPrisma;
+
+    private int spawnIndex = 0;
+
+
+
+    private void Start() {
+        initialPrismaTrigger = prismaTrigger;
+    }
 
     void Update()
     {
-        if (!prismaSpawned){
+        if (!artifactSpawned){
             float distance = Vector3.Distance(transform.position, Vector3.zero); 
 
-            if (distance > prismaTrigger && !prismaSpawned){
+            if (distance > prismaTrigger && !artifactSpawned){
                 SpawnPrisma();
-                prismaSpawned = true; 
+                artifactSpawned = true;
+                Debug.Log("Spawned");
             }
         }
 
-        if (prismaSpawned && spawnedPrisma != null)
+        if (artifactSpawned && spawnedPrisma != null)
         {
             float distanceToPrisma = Vector3.Distance(transform.position, spawnedPrisma.transform.position);
 
             if (distanceToPrisma > prismaRange)
             {
                 DespawnPrisma();
+                artifactSpawned = false;
+                spawnIndex++;
+                prismaTrigger += initialPrismaTrigger + spawnDistance + prismaRange;
             }
         }
         
@@ -49,9 +62,19 @@ public class player : MonoBehaviour
 
             Vector3 spawnPosition = forwardSpawnPosition + leftOffsetPosition;
 
-            spawnPosition.y += yOffset;
+            if (spawnIndex == 0){
+                spawnPosition.y += yOffset;
+            }
 
-            spawnedPrisma = Instantiate(objectPrefabs[0], spawnPosition, Quaternion.identity);
+            if (spawnIndex == 1){
+                spawnPosition.y += 3f;
+                Quaternion correctRotation = Quaternion.Euler(0, -60, 90);
+                spawnedPrisma = Instantiate(objectPrefabs[spawnIndex], spawnPosition, correctRotation);
+            }else{
+                spawnedPrisma = Instantiate(objectPrefabs[spawnIndex], spawnPosition, Quaternion.identity);
+            }
+
+            
         }
     }
 
