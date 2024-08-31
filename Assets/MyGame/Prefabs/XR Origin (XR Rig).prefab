@@ -981,7 +981,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPrefabs:
-  - {fileID: 0}
+  - {fileID: 2695078827634965441, guid: 7baec8a0e79c2334f868d2d4e5b07fbf, type: 3}
+  - {fileID: 2781783062357174061, guid: 7e741d752bed055469fca4878a9fb83f, type: 3}
   prismaTrigger: 10
   prismaRange: 20
   spawnDistance: 10
