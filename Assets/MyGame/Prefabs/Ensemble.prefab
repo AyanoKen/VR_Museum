@@ -83,5 +83,57 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b779804fbc36abe40ad9433aa8559600, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3439422723393033192}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b779804fbc36abe40ad9433aa8559600, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7386318231896303683}
   m_SourcePrefab: {fileID: 100100000, guid: b779804fbc36abe40ad9433aa8559600, type: 3}
+--- !u!1 &1564738644473821255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b779804fbc36abe40ad9433aa8559600, type: 3}
+  m_PrefabInstance: {fileID: 1834786184706721046}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &3439422723393033192
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564738644473821255}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4.42
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7386318231896303683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564738644473821255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb39d31e636b7a41bdbf4bd2f584aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomMaterials:
+  - {fileID: 2100000, guid: 68382d1d7ba6ae446afac94d5d215e6b, type: 2}
+  - {fileID: 2100000, guid: 42dc332a9eb81ab48b1ec0d23a3ce526, type: 2}
+  - {fileID: 2100000, guid: eefd36649c08df54db30026125ee4e73, type: 2}
+  - {fileID: 2100000, guid: 456ccb2557106ce468305090ba632147, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: dbf0acf862a1f6547bf21893849b22f6, type: 2}
