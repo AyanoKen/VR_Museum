@@ -172,7 +172,96 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4884089870191307180, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
       propertyPath: displayText
-      value: StairWELL
+      value: Based on StairWELL                                           Using a
+        novel combination of art, technology, and clinical psychology, the StairWELL
+        project is an interactive sculptural installation to create a sense of beauty,
+        respite, and play via an inventive user interface. Viewers become participants
+        in an expressive journey that creates community while also delivering powerful
+        supportive connections where they may be needed.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_margin.w
+      value: -18.342638
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_margin.x
+      value: -13.46397
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_colorMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_enableVertexGradient
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.topLeft.b
+      value: 0.3773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.topLeft.g
+      value: 0.3773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.topLeft.r
+      value: 0.3773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.topRight.b
+      value: 0.3773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.topRight.g
+      value: 0.3773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.topRight.r
+      value: 0.3773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.bottomLeft.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.bottomLeft.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.bottomLeft.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.bottomRight.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.bottomRight.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.bottomRight.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481278211785622218, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.647
       objectReference: {fileID: 0}
     - target: {fileID: 6519274114192425911, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
       propertyPath: m_Name
@@ -408,7 +497,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4884089870191307180, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
       propertyPath: displayText
-      value: Walk to the center
+      value: The Dome                                            Walk straight into
+        the center of the dome
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6519274114192425911, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
       propertyPath: m_Name
@@ -803,11 +901,104 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4884089870191307180, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
       propertyPath: displayText
-      value: Ensemble. Watch the lights change
+      value: "Based on Ensemble.                                                                
+        Ensemble, as the name implies, is a collaboration between fine art and orchestral
+        performance.  Visual artist Esteban Garcia Bravo collaborated with Allentown
+        Symphony Orchestra Composer in Residence Chris Rogerson to create an original
+        work of art that fuses sculpture, light art, and an original musical composition
+        entitled Arietta, debuting together in Allentown\u2019s Arts Walk. The sculpture
+        is animated with a sequence of colorful light modules that change color,
+        intensity, and rhythm to respond to Chris Rogerson\u2019s Arietta.  Together
+        the music and light merge in a synesthetic composition of visual and auditory
+        elements, a true ensemble."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_margin.w
+      value: -22.966555
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_margin.z
+      value: -21.200388
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_colorMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_enableVertexGradient
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.topLeft.b
+      value: 0.84967804
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.topLeft.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.topLeft.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.topRight.b
+      value: 0.84967804
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.topRight.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.topRight.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.bottomLeft.b
+      value: 0.025542913
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.bottomLeft.g
+      value: 0.6981708
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.bottomLeft.r
+      value: 0.7735849
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.bottomRight.b
+      value: 0.025542913
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.bottomRight.g
+      value: 0.6981708
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.bottomRight.r
+      value: 0.7735849
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481278211785622218, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.774
       objectReference: {fileID: 0}
     - target: {fileID: 6519274114192425911, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
       propertyPath: m_Name
-      value: TextSlab
+      value: EnsembleText
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -973,7 +1164,96 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4884089870191307180, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
       propertyPath: displayText
-      value: PRISMA
+      value: "Based on PRISMA                                                                           
+        PRISMA is an interactive and immersive light installation that invites you
+        to re-activate \u201Cinvisible\u201D urban spaces with renewed excitement.
+        Inspired by Columbus' modern architectural legacy, a rectangular prism is
+        used as a foundation to create an open-air tunnel with a free-flowing, animated
+        lighted experience. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_margin.y
+      value: -1.7335514
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_margin.z
+      value: -21.963089
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_colorMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_enableVertexGradient
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.topLeft.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.topLeft.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.topLeft.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.topRight.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.topRight.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.topRight.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.bottomLeft.b
+      value: 0.8741138
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.bottomLeft.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.bottomLeft.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.bottomRight.b
+      value: 0.8741138
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.bottomRight.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594717432020977392, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
+      propertyPath: m_fontColorGradient.bottomRight.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6519274114192425911, guid: c4ce6c4b9e8fc3d4c995e44a9308c789, type: 3}
       propertyPath: m_Name
