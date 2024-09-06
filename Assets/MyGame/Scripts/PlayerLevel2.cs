@@ -6,6 +6,7 @@ public class PlayerLevel2 : MonoBehaviour
 {
     private bool isEventActive = true;
     private int eventNumber = 0;
+    public AudioClip[] audioClips;
 
     public GameObject[] objectPrefabs;
     public GameObject guide; 
@@ -14,10 +15,13 @@ public class PlayerLevel2 : MonoBehaviour
     public float eventDelay = 10f;
 
     private GameObject spawnedEvent;
+    private GameObject spawnedGuide;
+    private AudioSource playerAudioSource;
 
 
     private void Start()
     {
+        playerAudioSource = GetComponent<AudioSource>(); 
         StartCoroutine(EnableGuideAfterDelay());
     }
 
@@ -101,13 +105,91 @@ public class PlayerLevel2 : MonoBehaviour
         {
             Destroy(spawnedEvent);
             Debug.Log("Spawned object destroyed because the player got too close.");
+            eventNumber++;
             StartCoroutine(EnableEventsAfterDelay());
         }
     }
 
     private void TriggerEvent1()
     {
-        return;
+        isEventActive = true;
+        Vector3 spawnPosition = transform.position + transform.forward * 5f;  
+        spawnedGuide = Instantiate(objectPrefabs[eventNumber], spawnPosition, Quaternion.identity);
+
+        
+        AudioSource guideAudio = spawnedGuide.GetComponent<AudioSource>();
+        if (guideAudio != null)
+        {
+            guideAudio.Play();  
+        }
+
+        
+        StartCoroutine(CheckProximityForVFX());
+    }
+
+    private IEnumerator CheckProximityForVFX()
+    {
+        bool vfxTriggered = false;
+        while (!vfxTriggered)
+        {
+            float distanceToGuide = Vector3.Distance(transform.position, spawnedGuide.transform.position);
+
+            if (distanceToGuide < 3f) 
+            {
+                
+                Animator guideAnimator = spawnedGuide.GetComponent<Animator>();
+                if (guideAnimator != null)
+                {
+                    guideAnimator.SetTrigger("TriggerVFX");  
+                }
+
+                
+                TriggerPlaygroundTransition();
+                vfxTriggered = true;
+            }
+
+            yield return null;
+        }
+    }
+
+    private void TriggerPlaygroundTransition()
+    {
+        
+        Vector3 playgroundPosition = transform.position;  
+        GameObject playground = Instantiate(objectPrefabs[1], playgroundPosition, Quaternion.identity);
+
+        
+        playerAudioSource.clip = audioClips[0];  
+        playerAudioSource.Play();
+
+        
+        StartCoroutine(GlitchAndTransition(playground));
+    }
+
+    private IEnumerator GlitchAndTransition(GameObject playground)
+    {
+        yield return new WaitForSeconds(5f);  
+
+        
+        for (int i = 0; i < 3; i++)
+        {
+            playground.SetActive(false);
+            yield return new WaitForSeconds(0.1f);
+            playground.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        
+        Destroy(playground);
+
+        
+        GameObject ruinedPlayground = Instantiate(objectPrefabs[2], transform.position, Quaternion.identity);
+
+        
+        playerAudioSource.clip = audioClips[1];
+        playerAudioSource.Play();
+
+        Debug.Log("Transitioned to the ruined playground with cries.");
     }
 
     private void TriggerEvent2()
