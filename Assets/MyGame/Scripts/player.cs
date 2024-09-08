@@ -5,85 +5,77 @@ using UnityEngine;
 public class player : MonoBehaviour
 {
     public GameObject[] objectPrefabs;
-    public float prismaTrigger = 10f;
-    private float initialPrismaTrigger;
-    public float prismaRange = 25f;
-    public float spawnDistance = 20f;
-    [SerializeField] private float leftOffset = 5f;
-    [SerializeField] private float yOffset = 0.447942f;
-
-    private bool artifactSpawned = false; 
-    private GameObject spawnedPrisma;
-
+    public AudioClip[] modelAudioClips;
+    public GameObject guide;
+    private AudioSource guideAudio;     // AudioSource component on the guide
+    private Animator guideAnimator;
     private int spawnIndex = 0;
+
+    private int currentIndex = 0;
 
 
 
     private void Start() {
-        initialPrismaTrigger = prismaTrigger;
+        guideAudio = guide.GetComponent<AudioSource>();
+        guideAnimator = guide.GetComponent<Animator>();
+
+        
+        guideAudio.Play();
+
+        
+        StartCoroutine(HandleGuideAudioAndMovement());
+    }
+
+    private IEnumerator HandleGuideAudioAndMovement()
+    {
+        
+        yield return new WaitWhile(() => guideAudio.isPlaying);
+
+        
+        if (objectPrefabs.Length > 0)
+        {
+            objectPrefabs[currentIndex].SetActive(true);
+
+            guideAnimator.SetBool("isWalking", true);
+
+            Vector3 targetPosition = objectPrefabs[currentIndex].transform.position + new Vector3(2f, 0, 0); // Adjust the offset as needed
+            StartCoroutine(MoveGuideToPosition(targetPosition));
+
+            
+            yield return new WaitForSeconds(3);
+            guideAnimator.SetBool("isWalking", false);
+        }
+    }
+
+    private IEnumerator MoveGuideToPosition(Vector3 targetPosition)
+    {
+        float speed = 2f;
+        while (Vector3.Distance(guide.transform.position, targetPosition) > 0.1f)
+        {
+            guide.transform.position = Vector3.MoveTowards(guide.transform.position, targetPosition, speed * Time.deltaTime);
+            yield return null;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        for (int i = 0; i < objectPrefabs.Length; i++)
+        {
+            if (other.gameObject == objectPrefabs[i])
+            {
+                guideAudio.clip = modelAudioClips[currentIndex];
+                guideAudio.Play();
+
+                Debug.Log("Playing audio for model: " + objectPrefabs[i].name);
+
+                currentIndex++;
+            }
+        }
     }
 
     void Update()
     {
-        if (!artifactSpawned){
-            float distance = Vector3.Distance(transform.position, Vector3.zero); 
-
-            if (distance > prismaTrigger && !artifactSpawned){
-                SpawnPrisma();
-                artifactSpawned = true;
-                Debug.Log("Spawned");
-            }
-        }
-
-        if (artifactSpawned && spawnedPrisma != null)
-        {
-            float distanceToPrisma = Vector3.Distance(transform.position, spawnedPrisma.transform.position);
-
-            if (distanceToPrisma > prismaRange)
-            {
-                DespawnPrisma();
-                artifactSpawned = false;
-                spawnIndex++;
-                prismaTrigger += initialPrismaTrigger + spawnDistance + prismaRange;
-            }
-        }
         
-    }
-
-    private void SpawnPrisma()
-    {
-        if (objectPrefabs.Length > 0)
-        {
-            Vector3 forwardSpawnPosition = transform.position + transform.forward * spawnDistance;
-
-            Vector3 leftDirection = -transform.right; 
-
-            Vector3 leftOffsetPosition = leftDirection * leftOffset;
-
-            Vector3 spawnPosition = forwardSpawnPosition + leftOffsetPosition;
-
-            if (spawnIndex == 0){
-                spawnPosition.y += yOffset;
-            }
-
-            if (spawnIndex == 1){
-                spawnPosition.y += 3f;
-                Quaternion correctRotation = Quaternion.Euler(0, -60, 90);
-                spawnedPrisma = Instantiate(objectPrefabs[spawnIndex], spawnPosition, correctRotation);
-            }else{
-                spawnedPrisma = Instantiate(objectPrefabs[spawnIndex], spawnPosition, Quaternion.identity);
-            }
-
-            
-        }
-    }
-
-    private void DespawnPrisma()
-    {
-        if (spawnedPrisma != null)
-        {
-            Destroy(spawnedPrisma); // Destroy the Prisma object
-            spawnedPrisma = null; // Clear the reference
-        }
     }
 }
