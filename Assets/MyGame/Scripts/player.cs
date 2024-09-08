@@ -7,10 +7,11 @@ public class player : MonoBehaviour
     public GameObject[] objectPrefabs;
     public AudioClip[] modelAudioClips;
     public GameObject guide;
+    public GameObject playerCamera;
     private AudioSource guideAudio;     // AudioSource component on the guide
     private Animator guideAnimator;
     private int spawnIndex = 0;
-
+    private bool isTriggerActive = false;
     private int currentIndex = 0;
 
 
@@ -28,22 +29,29 @@ public class player : MonoBehaviour
 
     private IEnumerator HandleGuideAudioAndMovement()
     {
-        
         yield return new WaitWhile(() => guideAudio.isPlaying);
 
-        
         if (objectPrefabs.Length > 0)
+        {
+            ActivateNextModel();
+        }
+    }
+
+    private void ActivateNextModel()
+    {
+        if (currentIndex < objectPrefabs.Length)
         {
             objectPrefabs[currentIndex].SetActive(true);
 
+            
             guideAnimator.SetBool("isWalking", true);
 
-            Vector3 targetPosition = objectPrefabs[currentIndex].transform.position + new Vector3(2f, 0, 0); // Adjust the offset as needed
+            
+            Vector3 targetPosition = objectPrefabs[currentIndex].transform.position + new Vector3(2f, 0, 0);
             StartCoroutine(MoveGuideToPosition(targetPosition));
 
             
-            yield return new WaitForSeconds(3);
-            guideAnimator.SetBool("isWalking", false);
+            currentIndex++;
         }
     }
 
@@ -55,23 +63,54 @@ public class player : MonoBehaviour
             guide.transform.position = Vector3.MoveTowards(guide.transform.position, targetPosition, speed * Time.deltaTime);
             yield return null;
         }
+
+        guideAnimator.SetBool("isWalking", false);
+        RotateGuideTowardsPlayer();
+    }
+
+    private void RotateGuideTowardsPlayer()
+    {
+        Vector3 directionToPlayer = playerCamera.transform.position - guide.transform.position;
+        directionToPlayer.y = 0; 
+
+        Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+
+        guide.transform.rotation = Quaternion.Slerp(guide.transform.rotation, targetRotation, 1f);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        for (int i = 0; i < objectPrefabs.Length; i++)
+        if (!isTriggerActive)
         {
-            if (other.gameObject == objectPrefabs[i])
+            for (int i = 0; i < objectPrefabs.Length; i++)
             {
-                guideAudio.clip = modelAudioClips[currentIndex];
-                guideAudio.Play();
+                if (other.gameObject == objectPrefabs[i])
+                {
+                    isTriggerActive = true;
 
-                Debug.Log("Playing audio for model: " + objectPrefabs[i].name);
+                    if (modelAudioClips.Length > i && guideAudio != null)
+                    {
+                        guideAudio.clip = modelAudioClips[i];
+                        guideAudio.Play();
 
-                currentIndex++;
+                        StartCoroutine(WaitForAudioToEnd());
+                    }
+                    break;
+                }
             }
         }
+    }
+
+    private IEnumerator WaitForAudioToEnd()
+    {
+        yield return new WaitWhile(() => guideAudio.isPlaying);
+
+        if (currentIndex < objectPrefabs.Length)
+        {
+            ActivateNextModel();
+        }
+
+        isTriggerActive = false;
     }
 
     void Update()
