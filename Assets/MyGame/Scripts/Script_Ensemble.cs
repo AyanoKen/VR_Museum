@@ -8,9 +8,14 @@ public class Script_Ensemble : MonoBehaviour
     [SerializeField] private Material defaultMaterial; 
 
     private Renderer[] childRenderers;
+    private AudioSource audioSource;
+    private float[] spectrumData = new float[64];
 
     private void Start()
     {
+
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
         
         if (randomMaterials.Length != 4)
         {
@@ -28,63 +33,116 @@ public class Script_Ensemble : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            AssignRandomMaterials();
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            ResetMaterialsToDefault();
-        }
-    }
-
-    private void AssignRandomMaterials()
+    private void Update()
     {
         
-        Material[] shuffledMaterials = ShuffleMaterials(randomMaterials);
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            
+            audioSource.GetSpectrumData(spectrumData, 0, FFTWindow.Rectangular);
+
+            
+            ChangeColorsBasedOnPitch();
+        }
+    }
+
+    private void ChangeColorsBasedOnPitch()
+    {
+        
+        float averagePitch = 0f;
+        for (int i = 0; i < spectrumData.Length; i++)
+        {
+            averagePitch += spectrumData[i];
+        }
+        averagePitch /= spectrumData.Length;
+
+        
+        int materialIndex = 0;
+        Debug.Log(averagePitch);
+        if (averagePitch > 0.0001f && averagePitch <= 0.001f)
+        {
+            materialIndex = 0;
+        }
+        else if (averagePitch > 0.001f && averagePitch <= 0.004f)
+        {
+            materialIndex = 1;
+        }
+        else if (averagePitch > 0.004f && averagePitch <= 0.006f)
+        {
+            materialIndex = 2;
+        }
+        else if (averagePitch > 0.006f)
+        {
+            materialIndex = 3;
+        }
 
         
         for (int i = 0; i < childRenderers.Length; i++)
         {
             if (childRenderers[i] != null)
             {
-                childRenderers[i].material = shuffledMaterials[i];
+                childRenderers[i].material = randomMaterials[materialIndex];
             }
         }
     }
 
-    private void ResetMaterialsToDefault()
-    {
-        
-        foreach (Renderer renderer in childRenderers)
-        {
-            if (renderer != null)
-            {
-                renderer.material = defaultMaterial;
-            }
-        }
-    }
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.CompareTag("Player"))
+    //     {
+    //         AssignRandomMaterials();
+    //     }
+    // }
 
-    private Material[] ShuffleMaterials(Material[] materials)
-    {
+    // private void OnTriggerExit(Collider other)
+    // {
+    //     if (other.CompareTag("Player"))
+    //     {
+    //         ResetMaterialsToDefault();
+    //     }
+    // }
+
+    // private void AssignRandomMaterials()
+    // {
         
-        Material[] shuffledMaterials = (Material[])materials.Clone();
+    //     Material[] shuffledMaterials = ShuffleMaterials(randomMaterials);
 
         
-        for (int i = shuffledMaterials.Length - 1; i > 0; i--)
-        {
-            int randomIndex = Random.Range(0, i + 1);
-            Material temp = shuffledMaterials[i];
-            shuffledMaterials[i] = shuffledMaterials[randomIndex];
-            shuffledMaterials[randomIndex] = temp;
-        }
+    //     for (int i = 0; i < childRenderers.Length; i++)
+    //     {
+    //         if (childRenderers[i] != null)
+    //         {
+    //             childRenderers[i].material = shuffledMaterials[i];
+    //         }
+    //     }
+    // }
 
-        return shuffledMaterials;
-    }
+    // private void ResetMaterialsToDefault()
+    // {
+        
+    //     foreach (Renderer renderer in childRenderers)
+    //     {
+    //         if (renderer != null)
+    //         {
+    //             renderer.material = defaultMaterial;
+    //         }
+    //     }
+    // }
+
+    // private Material[] ShuffleMaterials(Material[] materials)
+    // {
+        
+    //     Material[] shuffledMaterials = (Material[])materials.Clone();
+
+        
+    //     for (int i = shuffledMaterials.Length - 1; i > 0; i--)
+    //     {
+    //         int randomIndex = Random.Range(0, i + 1);
+    //         Material temp = shuffledMaterials[i];
+    //         shuffledMaterials[i] = shuffledMaterials[randomIndex];
+    //         shuffledMaterials[randomIndex] = temp;
+    //     }
+
+    //     return shuffledMaterials;
+    // }
 }

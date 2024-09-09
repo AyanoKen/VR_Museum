@@ -10,7 +10,6 @@ public class player : MonoBehaviour
     public GameObject playerCamera;
     private AudioSource guideAudio;     // AudioSource component on the guide
     private Animator guideAnimator;
-    private int spawnIndex = 0;
     private bool isTriggerActive = false;
     private int currentIndex = 0;
 
@@ -41,7 +40,22 @@ public class player : MonoBehaviour
     {
         if (currentIndex < objectPrefabs.Length)
         {
+            Debug.Log(objectPrefabs[currentIndex]);
             objectPrefabs[currentIndex].SetActive(true);
+            
+            if (!objectPrefabs[currentIndex].activeInHierarchy)
+            {
+                Debug.Log("Trying to set active again");
+                objectPrefabs[currentIndex].SetActive(true); 
+            } else {
+                Debug.Log(objectPrefabs[currentIndex] + "Is already active");
+            }
+
+            if (currentIndex == 0)
+            {
+                
+                StartCoroutine(EnableModelScriptAfterNarration());
+            }
 
             
             guideAnimator.SetBool("isWalking", true);
@@ -55,13 +69,26 @@ public class player : MonoBehaviour
         }
     }
 
+    private IEnumerator EnableModelScriptAfterNarration()
+    {
+        
+        yield return new WaitForSeconds(guideAudio.clip.length);
+
+        
+        Script_Ensemble ensembleScript = objectPrefabs[0].GetComponent<Script_Ensemble>();
+        if (ensembleScript != null)
+        {
+            ensembleScript.enabled = true;
+        }
+    }
+
     private IEnumerator MoveGuideToPosition(Vector3 targetPosition)
     {
         float speed = 2f;
         while (Vector3.Distance(guide.transform.position, targetPosition) > 0.1f)
         {
            
-            RotateGuideTowardsTarget(objectPrefabs[currentIndex].transform.position);
+            //RotateGuideTowardsTarget(objectPrefabs[currentIndex].transform.position);
 
             
             guide.transform.position = Vector3.MoveTowards(guide.transform.position, targetPosition, speed * Time.deltaTime);

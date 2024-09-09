@@ -80,8 +80,8 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _CenterColor: {r: 1, g: 0.5615011, b: 0, a: 1}
+    - _CenterColor: {r: 1, g: 0.09661549, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EdgeColor: {r: 1, g: 0.033018887, b: 0.04278621, a: 1}
+    - _EdgeColor: {r: 1, g: 0.504717, b: 0.5107327, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
