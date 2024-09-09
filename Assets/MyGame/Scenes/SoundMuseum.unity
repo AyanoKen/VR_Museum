@@ -390,6 +390,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Event1-Guide
       objectReference: {fileID: 0}
+    - target: {fileID: 5211284902085302403, guid: 090e5b8c1b166224cb8d0f2c223a7707, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
