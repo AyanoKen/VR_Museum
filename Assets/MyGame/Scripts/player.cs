@@ -47,7 +47,7 @@ public class player : MonoBehaviour
             guideAnimator.SetBool("isWalking", true);
 
             
-            Vector3 targetPosition = objectPrefabs[currentIndex].transform.position + new Vector3(2f, 0, 0);
+            Vector3 targetPosition = objectPrefabs[currentIndex].transform.position + new Vector3(0, 0, -5);
             StartCoroutine(MoveGuideToPosition(targetPosition));
 
             
@@ -60,12 +60,30 @@ public class player : MonoBehaviour
         float speed = 2f;
         while (Vector3.Distance(guide.transform.position, targetPosition) > 0.1f)
         {
+           
+            RotateGuideTowardsTarget(objectPrefabs[currentIndex].transform.position);
+
+            
             guide.transform.position = Vector3.MoveTowards(guide.transform.position, targetPosition, speed * Time.deltaTime);
             yield return null;
         }
 
+        
         guideAnimator.SetBool("isWalking", false);
+
+        
         RotateGuideTowardsPlayer();
+    }
+
+    private void RotateGuideTowardsTarget(Vector3 targetPosition)
+    {
+        Vector3 directionToTarget = targetPosition - guide.transform.position;
+        directionToTarget.y = 0; // Keep rotation in the horizontal plane
+
+        Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
+
+        // Smoothly rotate the guide towards the model
+        guide.transform.rotation = Quaternion.Slerp(guide.transform.rotation, targetRotation, 0.1f);
     }
 
     private void RotateGuideTowardsPlayer()
@@ -73,8 +91,17 @@ public class player : MonoBehaviour
         Vector3 directionToPlayer = playerCamera.transform.position - guide.transform.position;
         directionToPlayer.y = 0; 
 
+        
         Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
 
+        
+        Vector3 adjustedRotation = targetRotation.eulerAngles;
+        adjustedRotation.x += 90f; 
+
+        
+        targetRotation = Quaternion.Euler(adjustedRotation);
+
+        
         guide.transform.rotation = Quaternion.Slerp(guide.transform.rotation, targetRotation, 1f);
     }
 
