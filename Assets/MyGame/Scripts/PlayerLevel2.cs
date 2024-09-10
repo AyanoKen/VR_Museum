@@ -10,7 +10,7 @@ public class PlayerLevel2 : MonoBehaviour
 
     public GameObject[] objectPrefabs;
     public GameObject playgroundPrefab;
-    public Gameobject ruinedPlaygroundPrefab;
+    public GameObject ruinedPlaygroundPrefab;
     public GameObject guide; 
     public float firstEventDelay = 5f;  
 

@@ -283,12 +283,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3486773632755068742, guid: a0b7c444ac1cc834dacfe3d917e088b0, type: 3}
       propertyPath: objectPrefabs.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3486773632755068742, guid: a0b7c444ac1cc834dacfe3d917e088b0, type: 3}
       propertyPath: objectPrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 3465049482283806135, guid: a6564a084aee7b14992c1d2b2c1fe0cc, type: 3}
+      objectReference: {fileID: 5211284902085302403, guid: 090e5b8c1b166224cb8d0f2c223a7707, type: 3}
     - target: {fileID: 3748769353613184956, guid: a0b7c444ac1cc834dacfe3d917e088b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -333,7 +333,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Origin (XR Rig)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2273883633856231210, guid: a0b7c444ac1cc834dacfe3d917e088b0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -389,10 +390,6 @@ PrefabInstance:
     - target: {fileID: 5211284902085302403, guid: 090e5b8c1b166224cb8d0f2c223a7707, type: 3}
       propertyPath: m_Name
       value: Event1-Guide
-      objectReference: {fileID: 0}
-    - target: {fileID: 5211284902085302403, guid: 090e5b8c1b166224cb8d0f2c223a7707, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
