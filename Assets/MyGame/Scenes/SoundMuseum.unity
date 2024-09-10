@@ -282,6 +282,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3486773632755068742, guid: a0b7c444ac1cc834dacfe3d917e088b0, type: 3}
+      propertyPath: playgroundPrefab
+      value: 
+      objectReference: {fileID: 1134243934568562420, guid: 3df70452a503bc74cb5242f0b5be10c9, type: 3}
+    - target: {fileID: 3486773632755068742, guid: a0b7c444ac1cc834dacfe3d917e088b0, type: 3}
+      propertyPath: ruinedPlaygroundPrefab
+      value: 
+      objectReference: {fileID: 2045971500286299728, guid: fad3b648b59028e4a9d24d1eead07da9, type: 3}
+    - target: {fileID: 3486773632755068742, guid: a0b7c444ac1cc834dacfe3d917e088b0, type: 3}
       propertyPath: objectPrefabs.Array.size
       value: 2
       objectReference: {fileID: 0}
