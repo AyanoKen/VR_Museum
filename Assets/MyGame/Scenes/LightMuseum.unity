@@ -182,8 +182,8 @@ MonoBehaviour:
   m_AreaLightShadowCone: 120
   m_UseScreenSpaceShadows: 0
   m_InteractsWithSky: 1
-  m_AngularDiameter: 7.27
-  m_FlareSize: 54.78
+  m_AngularDiameter: 4.7
+  m_FlareSize: 83.95
   m_FlareTint: {r: 1, g: 1, b: 1, a: 1}
   m_FlareFalloff: 100
   m_SurfaceTexture: {fileID: 0}
@@ -317,13 +317,13 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6570
+  m_ColorTemperature: 15031
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
-  m_ShadowAngle: 7.27
+  m_ShadowAngle: 4.7
 --- !u!4 &124185339
 Transform:
   m_ObjectHideFlags: 0
@@ -347,6 +347,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 492570401108174596, guid: 6200c35e21e4b7745aa3e913b0a46cb5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a0270e87b4bdd5742ab6d8fb82d8a1c5, type: 2}
+    - target: {fileID: 616201433044961060, guid: 6200c35e21e4b7745aa3e913b0a46cb5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6cf69cbb67de01d48a56ed81098bd05a, type: 2}
     - target: {fileID: 1564738644473821255, guid: 6200c35e21e4b7745aa3e913b0a46cb5, type: 3}
       propertyPath: m_Name
       value: Ensemble
@@ -402,23 +410,35 @@ PrefabInstance:
     - target: {fileID: 5018820293544410134, guid: 6200c35e21e4b7745aa3e913b0a46cb5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ec9fbd96b3a13cf4092528991a1648fe, type: 2}
+      objectReference: {fileID: 2100000, guid: 82155f73ba7d32f439860f7d9e4262e4, type: 2}
     - target: {fileID: 7386318231896303683, guid: 6200c35e21e4b7745aa3e913b0a46cb5, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7386318231896303683, guid: 6200c35e21e4b7745aa3e913b0a46cb5, type: 3}
+      propertyPath: defaultMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 6cf69cbb67de01d48a56ed81098bd05a, type: 2}
+    - target: {fileID: 7386318231896303683, guid: 6200c35e21e4b7745aa3e913b0a46cb5, type: 3}
+      propertyPath: randomMaterials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 82155f73ba7d32f439860f7d9e4262e4, type: 2}
+    - target: {fileID: 7386318231896303683, guid: 6200c35e21e4b7745aa3e913b0a46cb5, type: 3}
       propertyPath: randomMaterials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: ec9fbd96b3a13cf4092528991a1648fe, type: 2}
+      objectReference: {fileID: 2100000, guid: 6cf69cbb67de01d48a56ed81098bd05a, type: 2}
     - target: {fileID: 7386318231896303683, guid: 6200c35e21e4b7745aa3e913b0a46cb5, type: 3}
       propertyPath: randomMaterials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: 42dc332a9eb81ab48b1ec0d23a3ce526, type: 2}
+      objectReference: {fileID: 2100000, guid: ca4a722d51042e8448213480de7d3990, type: 2}
     - target: {fileID: 7386318231896303683, guid: 6200c35e21e4b7745aa3e913b0a46cb5, type: 3}
       propertyPath: randomMaterials.Array.data[3]
       value: 
-      objectReference: {fileID: 2100000, guid: eefd36649c08df54db30026125ee4e73, type: 2}
+      objectReference: {fileID: 2100000, guid: a0270e87b4bdd5742ab6d8fb82d8a1c5, type: 2}
+    - target: {fileID: 8101144402546134867, guid: 6200c35e21e4b7745aa3e913b0a46cb5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca4a722d51042e8448213480de7d3990, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -539,6 +559,10 @@ PrefabInstance:
     - target: {fileID: 2695078827634965441, guid: 7baec8a0e79c2334f868d2d4e5b07fbf, type: 3}
       propertyPath: m_Name
       value: PRISMA
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695078827634965441, guid: 7baec8a0e79c2334f868d2d4e5b07fbf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3327323700019847547, guid: 7baec8a0e79c2334f868d2d4e5b07fbf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -842,7 +866,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854088935}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 8b704255dc6cdfb4583fd670d46f3f4f, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 3bbe5c9ad2eeefe4ca772063e2739268, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -1102,6 +1126,10 @@ PrefabInstance:
       propertyPath: modelAudioClips.Array.data[3]
       value: 
       objectReference: {fileID: 8300000, guid: c2a8248be3ba80a448b3e77ff84b6b71, type: 3}
+    - target: {fileID: 3247914384552346531, guid: a0b7c444ac1cc834dacfe3d917e088b0, type: 3}
+      propertyPath: m_MoveSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3486773632755068742, guid: a0b7c444ac1cc834dacfe3d917e088b0, type: 3}
       propertyPath: m_Enabled
       value: 0
