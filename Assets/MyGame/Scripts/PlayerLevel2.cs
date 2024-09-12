@@ -141,10 +141,10 @@ public class PlayerLevel2 : MonoBehaviour
             if (distanceToGuide < 3f) 
             {
                 
-                Animator guideAnimator = spawnedGuide.GetComponent<Animator>();
-                if (guideAnimator != null)
+                Event1 guideScript = spawnedGuide.GetComponent<Event1>();
+                if (guideScript != null)
                 {
-                    guideAnimator.SetTrigger("TriggerVFX");  //When player too close, we trigger this spell VFX
+                    guideScript.TriggerVFX();  //When player too close, we trigger this spell VFX
                 }
 
                 
@@ -163,6 +163,7 @@ public class PlayerLevel2 : MonoBehaviour
         GameObject playground = Instantiate(playgroundPrefab, playgroundPosition, Quaternion.identity);
         GameObject ruinedPlayground = Instantiate(ruinedPlaygroundPrefab, playgroundPosition, Quaternion.identity);
         ruinedPlayground.SetActive(false);
+        playground.SetActive(false);
 
         //TODO: Instead of playing the audio on the player, have multiple audiosources on the playground object and play all of them instead. 
         //TODO: SELF NOTE: Keep the audio source on the ruined playground turned off by default
@@ -176,7 +177,12 @@ public class PlayerLevel2 : MonoBehaviour
 
     private IEnumerator GlitchAndTransition(GameObject playground, GameObject ruinedPlayground) //This is where we turn on and off the playground scene as if its glitching in the existence 
     {
-        yield return new WaitForSeconds(15f);  //Wait before starting the glitch
+        yield return new WaitForSeconds(5f);  //Wait before starting the glitch
+
+        playground.SetActive(true);
+        Destroy(spawnedGuide);
+
+        yield return new WaitForSeconds(10);
 
         
         for (int i = 0; i < 3; i++)  //Glitch the playground scene. 5 seconds breathing time

@@ -8,14 +8,18 @@ public class Event1 : MonoBehaviour
     public float moveSpeed = 3f;       
     public float rotationSpeed = 2f;  
 
+    public ParticleSystem[] particleSystems; 
+
     private Transform playerTransform;  
     private Animator animator;
+    private AudioSource audioSource;
     private bool hasReachedDestination = false; 
 
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;  
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
 
         
         StartCoroutine(MoveAndTurnTowardsPlayer());
@@ -57,6 +61,17 @@ public class Event1 : MonoBehaviour
 
        
         animator.SetTrigger("idle");
+    }
+
+    public void TriggerVFX()
+    {
+        animator.SetTrigger("TriggerVFX");
+
+        // Trigger the particle systems simultaneously
+        foreach (ParticleSystem ps in particleSystems)
+        {
+            ps.Play();
+        }
     }
 
     void Update()
