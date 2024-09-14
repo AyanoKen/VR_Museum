@@ -210,6 +210,14 @@ public class PlayerLevel2 : MonoBehaviour
         Debug.Log("Transitioned to the ruined playground with cries.");
 
         yield return new WaitForSeconds(20f);
+
+        foreach (ParticleSystem ps in event2VFX)
+        {
+            ps.Play();
+        }
+
+        yield return new WaitForSeconds(5f);
+
         Destroy(ruinedPlayground);
         eventNumber++;
         StartCoroutine(EnableEventsAfterDelay()); //Enable events again after incrementing eventNumber :)
@@ -217,10 +225,7 @@ public class PlayerLevel2 : MonoBehaviour
 
     private void TriggerEvent2()
     {
-        foreach (ParticleSystem ps in event2VFX)
-        {
-            ps.Play();
-        }
+        return;
     }
 
     private void TriggerEvent3()
