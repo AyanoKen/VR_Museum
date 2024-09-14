@@ -15,6 +15,7 @@ public class PlayerLevel2 : MonoBehaviour
     public float firstEventDelay = 5f;  
 
     public float eventDelay = 10f;
+    public ParticleSystem[] event2VFX; 
 
     private GameObject spawnedEvent;
     private GameObject spawnedGuide;
@@ -121,11 +122,11 @@ public class PlayerLevel2 : MonoBehaviour
         spawnedGuide = Instantiate(objectPrefabs[eventNumber], spawnPosition, Quaternion.identity); //Note that we are using a new variable here, if we did not, the guide would despawn when player too close
 
         
-        AudioSource guideAudio = spawnedGuide.GetComponent<AudioSource>(); //Trigger the voice over of the guide, Mostly will just be a small "Follow me, traveller"
-        if (guideAudio != null)
-        {
-            guideAudio.Play();  
-        }
+        // AudioSource guideAudio = spawnedGuide.GetComponent<AudioSource>(); //Trigger the voice over of the guide, Mostly will just be a small "Follow me, traveller"
+        // if (guideAudio != null)
+        // {
+        //     guideAudio.Play();  
+        // }
 
         
         StartCoroutine(CheckProximityForVFX());
@@ -164,13 +165,6 @@ public class PlayerLevel2 : MonoBehaviour
         GameObject ruinedPlayground = Instantiate(ruinedPlaygroundPrefab, playgroundPosition, Quaternion.identity);
         ruinedPlayground.SetActive(false);
         playground.SetActive(false);
-
-        //TODO: Instead of playing the audio on the player, have multiple audiosources on the playground object and play all of them instead. 
-        //TODO: SELF NOTE: Keep the audio source on the ruined playground turned off by default
-        
-        // playerAudioSource.clip = audioClips[0];  //Change the audiosource on the player 
-        // playerAudioSource.Play();
-
         
         StartCoroutine(GlitchAndTransition(playground, ruinedPlayground));
     }
@@ -182,7 +176,7 @@ public class PlayerLevel2 : MonoBehaviour
         playground.SetActive(true);
         Destroy(spawnedGuide);
 
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(10f);
 
         
         for (int i = 0; i < 3; i++)  //Glitch the playground scene. 5 seconds breathing time
@@ -200,7 +194,16 @@ public class PlayerLevel2 : MonoBehaviour
 
         
         ruinedPlayground.SetActive(true);
-        //Turn on the audiosource on the ruined playground
+        
+        foreach (Transform child in ruinedPlayground.transform)
+        {
+            AudioSource audioSource = child.GetComponent<AudioSource>();
+            if (audioSource != null)
+            {
+                audioSource.Play();  // Play the AudioSource
+            }
+
+        }
 
 
 
@@ -214,7 +217,10 @@ public class PlayerLevel2 : MonoBehaviour
 
     private void TriggerEvent2()
     {
-        return;
+        foreach (ParticleSystem ps in event2VFX)
+        {
+            ps.Play();
+        }
     }
 
     private void TriggerEvent3()

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2997648575010018540}
   - component: {fileID: 8169075950398479914}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: CylinderBeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4842,7 +4842,7 @@ GameObject:
   - component: {fileID: 9024699597216700746}
   - component: {fileID: 5477882076277614816}
   m_Layer: 0
-  m_Name: Particle System (1)
+  m_Name: groundaoe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9682,15 +9682,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33e342bd7b3250748ac7de81f1b06a8c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.22582196
+      value: -0.3859129
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33e342bd7b3250748ac7de81f1b06a8c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.076
+      value: -0.0000009536743
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33e342bd7b3250748ac7de81f1b06a8c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.1672466
+      value: 8.811745
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33e342bd7b3250748ac7de81f1b06a8c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9811,7 +9811,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3bd304b8d1a0d294fab67838efd50d92, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 796fcf2c267f7f74d8b2612fd83c71a6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -9824,7 +9824,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
