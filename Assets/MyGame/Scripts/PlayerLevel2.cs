@@ -72,7 +72,7 @@ public class PlayerLevel2 : MonoBehaviour
 
     private IEnumerator DisableGuideAfterDelay() //Wait for the first voiceover to end, to disable the guide and enable the first event
     {
-        yield return new WaitForSeconds(20);   // Change the number here based on the length of the voiceover
+        yield return new WaitForSeconds(15);   // Change the number here based on the length of the voiceover
         guide.SetActive(false);
         StartCoroutine(EnableEventsAfterDelay()); 
     }
