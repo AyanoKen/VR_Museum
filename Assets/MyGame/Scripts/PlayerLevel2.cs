@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
+using TMPro;
 
 public class PlayerLevel2 : MonoBehaviour
 {
-    private bool isEventActive = true;
-    private int eventNumber = 0;
     public AudioClip[] audioClips;
 
     public GameObject[] objectPrefabs;
@@ -14,11 +14,20 @@ public class PlayerLevel2 : MonoBehaviour
     public GameObject guide; 
     public float firstEventDelay = 5f;  
 
-    public float eventDelay = 10f;
+    public float eventDelay = 5f;
+    public ParticleSystem[] event2VFX; 
+    public ParticleSystem climaxVFX;
+    public string[] graveyardTexts;
 
     private GameObject spawnedEvent;
     private GameObject spawnedGuide;
     private AudioSource playerAudioSource;
+    private bool isEventActive = true;
+    private int eventNumber = 2;
+    private int currentTextIndex = 0;
+    private bool letTombTrigger = true;
+    private VideoPlayer videoPlayer;
+    
 
 
     private void Start()
@@ -35,9 +44,17 @@ public class PlayerLevel2 : MonoBehaviour
 
         if (spawnedEvent != null)
         {
-            CheckDespawnDistance();
+            if(eventNumber == 0)
+            {
+                CheckDespawnDistance();
+            }
+            
         }
-        
+
+        if (videoPlayer != null && !videoPlayer.isPlaying)
+        {
+            HandleVideoEnd();
+        }
     }
 
     private void TriggerEvent(int eventNumber)
@@ -55,6 +72,9 @@ public class PlayerLevel2 : MonoBehaviour
             case 3:
                 TriggerEvent3();
                 break;
+            case 4:
+                TriggerEvent4();
+                break;
             default:
                 break;
         }
@@ -71,7 +91,7 @@ public class PlayerLevel2 : MonoBehaviour
 
     private IEnumerator DisableGuideAfterDelay() //Wait for the first voiceover to end, to disable the guide and enable the first event
     {
-        yield return new WaitForSeconds(20);   // Change the number here based on the length of the voiceover
+        yield return new WaitForSeconds(15);   // Change the number here based on the length of the voiceover
         guide.SetActive(false);
         StartCoroutine(EnableEventsAfterDelay()); 
     }
@@ -121,11 +141,11 @@ public class PlayerLevel2 : MonoBehaviour
         spawnedGuide = Instantiate(objectPrefabs[eventNumber], spawnPosition, Quaternion.identity); //Note that we are using a new variable here, if we did not, the guide would despawn when player too close
 
         
-        AudioSource guideAudio = spawnedGuide.GetComponent<AudioSource>(); //Trigger the voice over of the guide, Mostly will just be a small "Follow me, traveller"
-        if (guideAudio != null)
-        {
-            guideAudio.Play();  
-        }
+        // AudioSource guideAudio = spawnedGuide.GetComponent<AudioSource>(); //Trigger the voice over of the guide, Mostly will just be a small "Follow me, traveller"
+        // if (guideAudio != null)
+        // {
+        //     guideAudio.Play();  
+        // }
 
         
         StartCoroutine(CheckProximityForVFX());
@@ -141,10 +161,10 @@ public class PlayerLevel2 : MonoBehaviour
             if (distanceToGuide < 3f) 
             {
                 
-                Animator guideAnimator = spawnedGuide.GetComponent<Animator>();
-                if (guideAnimator != null)
+                Event1 guideScript = spawnedGuide.GetComponent<Event1>();
+                if (guideScript != null)
                 {
-                    guideAnimator.SetTrigger("TriggerVFX");  //When player too close, we trigger this spell VFX
+                    guideScript.TriggerVFX();  //When player too close, we trigger this spell VFX
                 }
 
                 
@@ -163,27 +183,26 @@ public class PlayerLevel2 : MonoBehaviour
         GameObject playground = Instantiate(playgroundPrefab, playgroundPosition, Quaternion.identity);
         GameObject ruinedPlayground = Instantiate(ruinedPlaygroundPrefab, playgroundPosition, Quaternion.identity);
         ruinedPlayground.SetActive(false);
-
-        //TODO: Instead of playing the audio on the player, have multiple audiosources on the playground object and play all of them instead. 
-        //TODO: SELF NOTE: Keep the audio source on the ruined playground turned off by default
-        
-        // playerAudioSource.clip = audioClips[0];  //Change the audiosource on the player 
-        // playerAudioSource.Play();
-
+        playground.SetActive(false);
         
         StartCoroutine(GlitchAndTransition(playground, ruinedPlayground));
     }
 
     private IEnumerator GlitchAndTransition(GameObject playground, GameObject ruinedPlayground) //This is where we turn on and off the playground scene as if its glitching in the existence 
     {
-        yield return new WaitForSeconds(15f);  //Wait before starting the glitch
+        yield return new WaitForSeconds(5f);  //Wait before starting the glitch
+
+        playground.SetActive(true);
+        Destroy(spawnedGuide);
+
+        yield return new WaitForSeconds(10f);
 
         
         for (int i = 0; i < 3; i++)  //Glitch the playground scene. 5 seconds breathing time
         {
             playground.SetActive(false);
             ruinedPlayground.SetActive(true);
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(0.2f);
             ruinedPlayground.SetActive(false);
             playground.SetActive(true);
             yield return new WaitForSeconds(5f);
@@ -194,24 +213,132 @@ public class PlayerLevel2 : MonoBehaviour
 
         
         ruinedPlayground.SetActive(true);
-        //Turn on the audiosource on the ruined playground
+        
+        foreach (Transform child in ruinedPlayground.transform)
+        {
+            AudioSource audioSource = child.GetComponent<AudioSource>();
+            if (audioSource != null)
+            {
+                audioSource.Play();  // Play the AudioSource
+            }
+
+        }
 
 
 
         Debug.Log("Transitioned to the ruined playground with cries.");
 
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSeconds(30f);
+
+        foreach (ParticleSystem ps in event2VFX)
+        {
+            ps.Play();
+        }
+
+        yield return new WaitForSeconds(5f);
+
         Destroy(ruinedPlayground);
         eventNumber++;
-        StartCoroutine(EnableEventsAfterDelay()); //Enable events again after incrementing eventNumber :)
+        isEventActive = false; //Enable Events again, no delay this time
+        Debug.Log("Activated the events logic");
     }
 
-    private void TriggerEvent2()
+    private void TriggerEvent2() //Graveyard Scene
     {
-        return;
+        isEventActive = true;
+        spawnedEvent = Instantiate(objectPrefabs[2], new Vector3(transform.position.x + 9f, 0.6f, transform.position.z + 15f), Quaternion.identity);
+    }
+
+    public void HandleTombstoneCollision(GameObject tombstone)
+    {
+        if (letTombTrigger)
+        {
+            TMP_Text tombstoneText = tombstone.GetComponentInChildren<TMP_Text>();
+
+            if (tombstoneText != null && graveyardTexts.Length > 0)
+            {
+                tombstoneText.text = graveyardTexts[currentTextIndex];
+                
+                currentTextIndex++;
+
+                letTombTrigger = false;
+
+                // Check if we've reached the end of the array
+                if (currentTextIndex >= graveyardTexts.Length)
+                {
+                    StartCoroutine(DespawnTombstones());
+                } 
+                else 
+                {
+                    StartCoroutine(EnableTombsAfterDelay());
+                }
+            }
+        }
+        
+    }
+
+    private IEnumerator EnableTombsAfterDelay()
+    {
+        yield return new WaitForSeconds(5f);
+        letTombTrigger = true;
+    }
+
+    private IEnumerator DespawnTombstones()
+    {
+        // Get all the children of the graveyard
+        foreach (Transform child in spawnedEvent.transform)
+        {
+            // Check if the child has the tag "TombStone"
+            if (child.CompareTag("TombStone"))
+            {
+                // Despawn the tombstone (you can play an animation or simply destroy it)
+                Destroy(child.gameObject);
+
+                // Wait for some time before despawning the next one
+                yield return new WaitForSeconds(0.1f); 
+            }
+        }
+
+        // After all tombstones are despawned, destroy the remaining objects like spotlights and plane
+        foreach (Transform child in spawnedEvent.transform)
+        {
+            if (!child.CompareTag("TombStone"))  // Destroy anything that is NOT a tombstone
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        
+        Destroy(spawnedEvent);
+        Debug.Log("All tombstones and remaining objects have been despawned.");
+
+        eventNumber++;
+        isEventActive = false;
     }
 
     private void TriggerEvent3()
+    {
+        isEventActive = true;
+        spawnedEvent = Instantiate(objectPrefabs[eventNumber], new Vector3(transform.position.x, 0.6f, transform.position.z), Quaternion.identity);
+
+        videoPlayer = spawnedEvent.GetComponentInChildren<VideoPlayer>();
+    }
+
+    private void HandleVideoEnd()
+    {
+        climaxVFX.Play();
+
+        if (spawnedEvent != null)
+        {
+            Destroy(spawnedEvent);  // Destroy the monitors or related objects
+            Debug.Log("Monitors despawned after video ended.");
+        }
+
+        videoPlayer = null;  // Reset videoPlayer reference
+        eventNumber++;       // Increment event number to move to the next event
+        isEventActive = false; // Allow next event to trigger
+    }
+
+    private void TriggerEvent4()
     {
         return;
     }

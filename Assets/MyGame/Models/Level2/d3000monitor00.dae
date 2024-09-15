@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.77.0 commit date:2016-03-18, commit time:12:34, hash:22a2853</authoring_tool>
+    </contributor>
+    <created>2021-06-23T16:46:01</created>
+    <modified>2021-06-23T16:46:01</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images>
+    <image id="d3000sofa00_png_001" name="d3000sofa00_png_001">
+      <init_from>d3000sofa00.png</init_from>
+    </image>
+  </library_images>
+  <library_effects>
+    <effect id="d3000monitor00_mat_000-effect">
+      <profile_COMMON>
+        <newparam sid="d3000sofa00_png_001-surface">
+          <surface type="2D">
+            <init_from>d3000sofa00_png_001</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="d3000sofa00_png_001-sampler">
+          <sampler2D>
+            <source>d3000sofa00_png_001-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="d3000sofa00_png_001-sampler" texcoord="d3000monitor00_0_001-mesh-map-0"/>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.5 0.5 0.5 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="d3000monitor00_mat_001-effect">
+      <profile_COMMON>
+        <newparam sid="d3000sofa00_png_001-surface">
+          <surface type="2D">
+            <init_from>d3000sofa00_png_001</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="d3000sofa00_png_001-sampler">
+          <sampler2D>
+            <source>d3000sofa00_png_001-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="d3000sofa00_png_001-sampler" texcoord="d3000monitor00_1_001-mesh-map-0"/>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.5 0.5 0.5 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="d3000monitor00_mat_002-effect">
+      <profile_COMMON>
+        <newparam sid="d3000sofa00_png_001-surface">
+          <surface type="2D">
+            <init_from>d3000sofa00_png_001</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="d3000sofa00_png_001-sampler">
+          <sampler2D>
+            <source>d3000sofa00_png_001-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="d3000sofa00_png_001-sampler" texcoord="d3000monitor00_2_001-mesh-map-0"/>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.5 0.5 0.5 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="d3000monitor00_mat_000-material" name="d3000monitor00_mat_000">
+      <instance_effect url="#d3000monitor00_mat_000-effect"/>
+    </material>
+    <material id="d3000monitor00_mat_001-material" name="d3000monitor00_mat_001">
+      <instance_effect url="#d3000monitor00_mat_001-effect"/>
+    </material>
+    <material id="d3000monitor00_mat_002-material" name="d3000monitor00_mat_002">
+      <instance_effect url="#d3000monitor00_mat_002-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="d3000monitor00_0_001-mesh" name="d3000monitor00_0.001">
+      <mesh>
+        <source id="d3000monitor00_0_001-mesh-positions">
+          <float_array id="d3000monitor00_0_001-mesh-positions-array" count="192">-0.744749 -0.430711 0.02330642 -0.744749 -0.430711 0.08916604 -0.744749 0.430711 0.08916604 -0.744749 0.430711 0.02330642 -0.744749 0.430711 0.02330642 -0.744749 0.430711 0.08916604 0 0.430711 0.08916604 0 0.430711 0.02330631 0.744749 0.430711 0.02330642 0.744749 0.430711 0.08916604 0.744749 -0.430711 0.08916604 0.744749 -0.430711 0.02330642 0 -0.430711 0.02330631 0 -0.430711 0.08916604 -0.744749 -0.430711 0.08916604 -0.744749 -0.430711 0.02330642 -0.744749 -0.430711 0.08916604 0 -0.430711 0.08916604 0 0.430711 0.08916604 -0.744749 0.430711 0.08916604 0 -0.194972 -0.08776688 -0.3707439 -0.194972 -0.08776688 -0.3707439 0.194972 -0.08776688 0 0.194972 -0.08776688 0 -0.430711 0.02330631 -0.744749 -0.430711 0.02330642 -0.3707439 -0.194972 -0.08776688 0 -0.194972 -0.08776688 -0.744749 -0.430711 0.02330642 -0.744749 0.430711 0.02330642 -0.3707439 0.194972 -0.08776688 -0.3707439 -0.194972 -0.08776688 -0.744749 0.430711 0.02330642 0 0.430711 0.02330631 0 0.194972 -0.08776688 -0.3707439 0.194972 -0.08776688 0.744749 0.430711 0.02330642 0.744749 -0.430711 0.02330642 0.3707439 -0.194972 -0.08776688 0.3707439 0.194972 -0.08776688 0 0.430711 0.02330631 0 0.430711 0.08916604 0.744749 0.430711 0.08916604 0.744749 0.430711 0.02330642 0 0.194972 -0.08776688 0 0.430711 0.02330631 0.744749 0.430711 0.02330642 0.3707439 0.194972 -0.08776688 0.3707439 -0.194972 -0.08776688 0 -0.194972 -0.08776688 0 0.194972 -0.08776688 0.3707439 0.194972 -0.08776688 0.744749 -0.430711 0.02330642 0 -0.430711 0.02330631 0 -0.194972 -0.08776688 0.3707439 -0.194972 -0.08776688 0.744749 -0.430711 0.02330642 0.744749 -0.430711 0.08916604 0 -0.430711 0.08916604 0 -0.430711 0.02330631 0 0.430711 0.08916604 0 -0.430711 0.08916604 0.744749 -0.430711 0.08916604 0.744749 0.430711 0.08916604</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_0_001-mesh-positions-array" count="64" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="d3000monitor00_0_001-mesh-normals">
+          <float_array id="d3000monitor00_0_001-mesh-normals-array" count="54">-1 0 0 0 1 0 1 0 0 0 -1 0 0 0 1 0 0 -1 -1.43961e-7 -0.4262283 -0.9046157 0 -0.4262281 -0.9046158 -0.2846939 0 -0.9586185 -0.2846939 0 -0.9586185 -1.43961e-7 0.4262281 -0.9046157 0 0.4262285 -0.9046156 0.2846939 0 -0.9586185 0.2846939 0 -0.9586185 1.43961e-7 0.4262281 -0.9046157 0 0.4262285 -0.9046157 1.43961e-7 -0.4262281 -0.9046157 0 -0.4262285 -0.9046156</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_0_001-mesh-normals-array" count="18" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="d3000monitor00_0_001-mesh-map-0">
+          <float_array id="d3000monitor00_0_001-mesh-map-0-array" count="192">0.1571044 0.7150879 0.1298828 0.7150879 0.1298828 0.3979492 0.1571044 0.7150879 0.1298828 0.3979492 0.1571044 0.3979492 0.1571044 0.3979492 0.1571044 0.3769531 0.4587402 0.3769531 0.1571044 0.3979492 0.4587402 0.3769531 0.4587402 0.3979492 0.1571044 0.3979492 0.1298828 0.3979492 0.1298828 0.7150879 0.1571044 0.3979492 0.1298828 0.7150879 0.1571044 0.7150879 0.4587402 0.7150879 0.4587402 0.7453613 0.1571044 0.7453613 0.4587402 0.7150879 0.1571044 0.7453613 0.1571044 0.7150879 0.4685059 0.7150879 0.7587891 0.7150879 0.7587891 0.3979492 0.4685059 0.7150879 0.7587891 0.3979492 0.4685059 0.3979492 0.4587402 0.6313477 0.3063965 0.6313477 0.3063965 0.4882813 0.4587402 0.6313477 0.3063965 0.4882813 0.4587402 0.4882813 0.4587402 0.7150879 0.1571044 0.7150879 0.3063965 0.6313477 0.4587402 0.7150879 0.3063965 0.6313477 0.4587402 0.6313477 0.1571044 0.7150879 0.1571044 0.3979492 0.3063965 0.4882813 0.1571044 0.7150879 0.3063965 0.4882813 0.3063965 0.6313477 0.1571044 0.3979492 0.4587402 0.3979492 0.4587402 0.4882813 0.1571044 0.3979492 0.4587402 0.4882813 0.3063965 0.4882813 0.1571044 0.3979492 0.1571044 0.7150879 0.3063965 0.6313477 0.1571044 0.3979492 0.3063965 0.6313477 0.3063965 0.4882813 0.4587402 0.3979492 0.4587402 0.3769531 0.1571044 0.3769531 0.4587402 0.3979492 0.1571044 0.3769531 0.1571044 0.3979492 0.4587402 0.4882813 0.4587402 0.3979492 0.1571044 0.3979492 0.4587402 0.4882813 0.1571044 0.3979492 0.3063965 0.4882813 0.3063965 0.6313477 0.4587402 0.6313477 0.4587402 0.4882813 0.3063965 0.6313477 0.4587402 0.4882813 0.3063965 0.4882813 0.1571044 0.7150879 0.4587402 0.7150879 0.4587402 0.6313477 0.1571044 0.7150879 0.4587402 0.6313477 0.3063965 0.6313477 0.1571044 0.7150879 0.1571044 0.7453613 0.4587402 0.7453613 0.1571044 0.7150879 0.4587402 0.7453613 0.4587402 0.7150879 0.7587891 0.3979492 0.7587891 0.7150879 0.4685059 0.7150879 0.7587891 0.3979492 0.4685059 0.7150879 0.4685059 0.3979492</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_0_001-mesh-map-0-array" count="96" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="d3000monitor00_0_001-mesh-colors-Map" name="Map">
+          <float_array id="d3000monitor00_0_001-mesh-colors-Map-array" count="288">0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_0_001-mesh-colors-Map-array" count="96" stride="3">
+              <param name="R" type="float"/>
+              <param name="G" type="float"/>
+              <param name="B" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="d3000monitor00_0_001-mesh-vertices">
+          <input semantic="POSITION" source="#d3000monitor00_0_001-mesh-positions"/>
+        </vertices>
+        <polylist material="d3000monitor00_mat_000-material" count="32">
+          <input semantic="VERTEX" source="#d3000monitor00_0_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#d3000monitor00_0_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#d3000monitor00_0_001-mesh-map-0" offset="2" set="0"/>
+          <input semantic="COLOR" source="#d3000monitor00_0_001-mesh-colors-Map" offset="3" set="0"/>
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>0 0 0 0 1 0 1 1 2 0 2 2 0 0 3 3 2 0 4 4 3 0 5 5 4 1 6 6 5 1 7 7 6 1 8 8 4 1 9 9 6 1 10 10 7 1 11 11 8 2 12 12 9 2 13 13 10 2 14 14 8 2 15 15 10 2 16 16 11 2 17 17 12 3 18 18 13 3 19 19 14 3 20 20 12 3 21 21 14 3 22 22 15 3 23 23 16 4 24 24 17 4 25 25 18 4 26 26 16 4 27 27 18 4 28 28 19 4 29 29 20 5 30 30 21 5 31 31 22 5 32 32 20 5 33 33 22 5 34 34 23 5 35 35 24 6 36 36 25 6 37 37 26 6 38 38 24 7 39 39 26 7 40 40 27 7 41 41 28 8 42 42 29 8 43 43 30 8 44 44 28 9 45 45 30 9 46 46 31 9 47 47 32 10 48 48 33 10 49 49 34 10 50 50 32 11 51 51 34 11 52 52 35 11 53 53 36 12 54 54 37 12 55 55 38 12 56 56 36 13 57 57 38 13 58 58 39 13 59 59 40 1 60 60 41 1 61 61 42 1 62 62 40 1 63 63 42 1 64 64 43 1 65 65 44 14 66 66 45 14 67 67 46 14 68 68 44 15 69 69 46 15 70 70 47 15 71 71 48 5 72 72 49 5 73 73 50 5 74 74 48 5 75 75 50 5 76 76 51 5 77 77 52 16 78 78 53 16 79 79 54 16 80 80 52 17 81 81 54 17 82 82 55 17 83 83 56 3 84 84 57 3 85 85 58 3 86 86 56 3 87 87 58 3 88 88 59 3 89 89 60 4 90 90 61 4 91 91 62 4 92 92 60 4 93 93 62 4 94 94 63 4 95 95</p>
+        </polylist>
+      </mesh>
+    </geometry>
+    <geometry id="d3000monitor00_1_001-mesh" name="d3000monitor00_1.001">
+      <mesh>
+        <source id="d3000monitor00_1_001-mesh-positions">
+          <float_array id="d3000monitor00_1_001-mesh-positions-array" count="12">0.683515 -0.381785 0.09416598 0.683515 0.381785 0.09416598 -0.683515 0.381785 0.09416598 -0.683515 -0.381785 0.09416598</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_1_001-mesh-positions-array" count="4" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="d3000monitor00_1_001-mesh-normals">
+          <float_array id="d3000monitor00_1_001-mesh-normals-array" count="3">0 0 1</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_1_001-mesh-normals-array" count="1" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="d3000monitor00_1_001-mesh-map-0">
+          <float_array id="d3000monitor00_1_001-mesh-map-0-array" count="12">0.996582 0.995594 0.996582 0.7231445 0.5336914 0.7231445 0.996582 0.995594 0.5336914 0.7231445 0.5336914 0.995594</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_1_001-mesh-map-0-array" count="6" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="d3000monitor00_1_001-mesh-colors-Map" name="Map">
+          <float_array id="d3000monitor00_1_001-mesh-colors-Map-array" count="18">0.7568628 0.7568628 0.7568628 0.7568628 0.7568628 0.7568628 0.7568628 0.7568628 0.7568628 0.7568628 0.7568628 0.7568628 0.7568628 0.7568628 0.7568628 0.7568628 0.7568628 0.7568628</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_1_001-mesh-colors-Map-array" count="6" stride="3">
+              <param name="R" type="float"/>
+              <param name="G" type="float"/>
+              <param name="B" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="d3000monitor00_1_001-mesh-vertices">
+          <input semantic="POSITION" source="#d3000monitor00_1_001-mesh-positions"/>
+        </vertices>
+        <polylist material="d3000monitor00_mat_001-material" count="2">
+          <input semantic="VERTEX" source="#d3000monitor00_1_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#d3000monitor00_1_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#d3000monitor00_1_001-mesh-map-0" offset="2" set="0"/>
+          <input semantic="COLOR" source="#d3000monitor00_1_001-mesh-colors-Map" offset="3" set="0"/>
+          <vcount>3 3 </vcount>
+          <p>0 0 0 0 1 0 1 1 2 0 2 2 0 0 3 3 2 0 4 4 3 0 5 5</p>
+        </polylist>
+      </mesh>
+    </geometry>
+    <geometry id="d3000monitor00_2_001-mesh" name="d3000monitor00_2.001">
+      <mesh>
+        <source id="d3000monitor00_2_001-mesh-positions">
+          <float_array id="d3000monitor00_2_001-mesh-positions-array" count="12">0.683515 -0.381785 0.09916609 0.683515 0.381785 0.09916609 -0.683515 0.381785 0.09916609 -0.683515 -0.381785 0.09916609</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_2_001-mesh-positions-array" count="4" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="d3000monitor00_2_001-mesh-normals">
+          <float_array id="d3000monitor00_2_001-mesh-normals-array" count="3">0 0 1</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_2_001-mesh-normals-array" count="1" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="d3000monitor00_2_001-mesh-map-0">
+          <float_array id="d3000monitor00_2_001-mesh-map-0-array" count="12">0.1133422 0.9965897 0.1133422 0.5 0.003810822 0.5 0.1133422 0.9965897 0.003810822 0.5 0.003824234 0.9965897</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_2_001-mesh-map-0-array" count="6" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="d3000monitor00_2_001-mesh-colors-Map" name="Map">
+          <float_array id="d3000monitor00_2_001-mesh-colors-Map-array" count="18">1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_2_001-mesh-colors-Map-array" count="6" stride="3">
+              <param name="R" type="float"/>
+              <param name="G" type="float"/>
+              <param name="B" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="d3000monitor00_2_001-mesh-vertices">
+          <input semantic="POSITION" source="#d3000monitor00_2_001-mesh-positions"/>
+        </vertices>
+        <polylist material="d3000monitor00_mat_002-material" count="2">
+          <input semantic="VERTEX" source="#d3000monitor00_2_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#d3000monitor00_2_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#d3000monitor00_2_001-mesh-map-0" offset="2" set="0"/>
+          <input semantic="COLOR" source="#d3000monitor00_2_001-mesh-colors-Map" offset="3" set="0"/>
+          <vcount>3 3 </vcount>
+          <p>0 0 0 0 1 0 1 1 2 0 2 2 0 0 3 3 2 0 4 4 3 0 5 5</p>
+        </polylist>
+      </mesh>
+    </geometry>
+    <geometry id="d3000monitor00_3_001-mesh" name="d3000monitor00_3.001">
+      <mesh>
+        <source id="d3000monitor00_3_001-mesh-positions">
+          <float_array id="d3000monitor00_3_001-mesh-positions-array" count="12">0.683515 -0.381785 0.101166 0.683515 0.381785 0.101166 -0.683515 0.381785 0.101166 -0.683515 -0.381785 0.101166</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_3_001-mesh-positions-array" count="4" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="d3000monitor00_3_001-mesh-normals">
+          <float_array id="d3000monitor00_3_001-mesh-normals-array" count="3">0 0 1</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_3_001-mesh-normals-array" count="1" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="d3000monitor00_3_001-mesh-map-0">
+          <float_array id="d3000monitor00_3_001-mesh-map-0-array" count="12">0.1133422 0.9965897 0.1133422 0.2001953 0.003810822 0.2001953 0.1133422 0.9965897 0.003810822 0.2001953 0.003824234 0.9965897</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_3_001-mesh-map-0-array" count="6" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="d3000monitor00_3_001-mesh-colors-Map" name="Map">
+          <float_array id="d3000monitor00_3_001-mesh-colors-Map-array" count="18">0.4980392 0.4980392 0.4980392 0.4980392 0.4980392 0.4980392 0.4980392 0.4980392 0.4980392 0.4980392 0.4980392 0.4980392 0.4980392 0.4980392 0.4980392 0.4980392 0.4980392 0.4980392</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_3_001-mesh-colors-Map-array" count="6" stride="3">
+              <param name="R" type="float"/>
+              <param name="G" type="float"/>
+              <param name="B" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="d3000monitor00_3_001-mesh-vertices">
+          <input semantic="POSITION" source="#d3000monitor00_3_001-mesh-positions"/>
+        </vertices>
+        <polylist material="d3000monitor00_mat_002-material" count="2">
+          <input semantic="VERTEX" source="#d3000monitor00_3_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#d3000monitor00_3_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#d3000monitor00_3_001-mesh-map-0" offset="2" set="0"/>
+          <input semantic="COLOR" source="#d3000monitor00_3_001-mesh-colors-Map" offset="3" set="0"/>
+          <vcount>3 3 </vcount>
+          <p>0 0 0 0 1 0 1 1 2 0 2 2 0 0 3 3 2 0 4 4 3 0 5 5</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers>
+    <controller id="d3000monitor00_armature_d3000monitor00_0-skin" name="d3000monitor00_armature">
+      <skin source="#d3000monitor00_0_001-mesh">
+        <bind_shape_matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</bind_shape_matrix>
+        <source id="d3000monitor00_armature_d3000monitor00_0-skin-joints">
+          <Name_array id="d3000monitor00_armature_d3000monitor00_0-skin-joints-array" count="1">monitor00</Name_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_armature_d3000monitor00_0-skin-joints-array" count="1" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="d3000monitor00_armature_d3000monitor00_0-skin-bind_poses">
+          <float_array id="d3000monitor00_armature_d3000monitor00_0-skin-bind_poses-array" count="16">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_armature_d3000monitor00_0-skin-bind_poses-array" count="1" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="d3000monitor00_armature_d3000monitor00_0-skin-weights">
+          <float_array id="d3000monitor00_armature_d3000monitor00_0-skin-weights-array" count="64">1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_armature_d3000monitor00_0-skin-weights-array" count="64" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#d3000monitor00_armature_d3000monitor00_0-skin-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#d3000monitor00_armature_d3000monitor00_0-skin-bind_poses"/>
+        </joints>
+        <vertex_weights count="64">
+          <input semantic="JOINT" source="#d3000monitor00_armature_d3000monitor00_0-skin-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#d3000monitor00_armature_d3000monitor00_0-skin-weights" offset="1"/>
+          <vcount>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </vcount>
+          <v>0 0 0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0 62 0 63</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+    <controller id="d3000monitor00_armature_d3000monitor00_1-skin" name="d3000monitor00_armature">
+      <skin source="#d3000monitor00_1_001-mesh">
+        <bind_shape_matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</bind_shape_matrix>
+        <source id="d3000monitor00_armature_d3000monitor00_1-skin-joints">
+          <Name_array id="d3000monitor00_armature_d3000monitor00_1-skin-joints-array" count="1">moni01</Name_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_armature_d3000monitor00_1-skin-joints-array" count="1" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="d3000monitor00_armature_d3000monitor00_1-skin-bind_poses">
+          <float_array id="d3000monitor00_armature_d3000monitor00_1-skin-bind_poses-array" count="16">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_armature_d3000monitor00_1-skin-bind_poses-array" count="1" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="d3000monitor00_armature_d3000monitor00_1-skin-weights">
+          <float_array id="d3000monitor00_armature_d3000monitor00_1-skin-weights-array" count="4">1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_armature_d3000monitor00_1-skin-weights-array" count="4" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#d3000monitor00_armature_d3000monitor00_1-skin-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#d3000monitor00_armature_d3000monitor00_1-skin-bind_poses"/>
+        </joints>
+        <vertex_weights count="4">
+          <input semantic="JOINT" source="#d3000monitor00_armature_d3000monitor00_1-skin-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#d3000monitor00_armature_d3000monitor00_1-skin-weights" offset="1"/>
+          <vcount>1 1 1 1 </vcount>
+          <v>0 0 0 1 0 2 0 3</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+    <controller id="d3000monitor00_armature_d3000monitor00_2-skin" name="d3000monitor00_armature">
+      <skin source="#d3000monitor00_2_001-mesh">
+        <bind_shape_matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</bind_shape_matrix>
+        <source id="d3000monitor00_armature_d3000monitor00_2-skin-joints">
+          <Name_array id="d3000monitor00_armature_d3000monitor00_2-skin-joints-array" count="1">noizu01</Name_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_armature_d3000monitor00_2-skin-joints-array" count="1" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="d3000monitor00_armature_d3000monitor00_2-skin-bind_poses">
+          <float_array id="d3000monitor00_armature_d3000monitor00_2-skin-bind_poses-array" count="16">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_armature_d3000monitor00_2-skin-bind_poses-array" count="1" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="d3000monitor00_armature_d3000monitor00_2-skin-weights">
+          <float_array id="d3000monitor00_armature_d3000monitor00_2-skin-weights-array" count="4">1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_armature_d3000monitor00_2-skin-weights-array" count="4" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#d3000monitor00_armature_d3000monitor00_2-skin-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#d3000monitor00_armature_d3000monitor00_2-skin-bind_poses"/>
+        </joints>
+        <vertex_weights count="4">
+          <input semantic="JOINT" source="#d3000monitor00_armature_d3000monitor00_2-skin-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#d3000monitor00_armature_d3000monitor00_2-skin-weights" offset="1"/>
+          <vcount>1 1 1 1 </vcount>
+          <v>0 0 0 1 0 2 0 3</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+    <controller id="d3000monitor00_armature_d3000monitor00_3-skin" name="d3000monitor00_armature">
+      <skin source="#d3000monitor00_3_001-mesh">
+        <bind_shape_matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</bind_shape_matrix>
+        <source id="d3000monitor00_armature_d3000monitor00_3-skin-joints">
+          <Name_array id="d3000monitor00_armature_d3000monitor00_3-skin-joints-array" count="1">noizu02</Name_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_armature_d3000monitor00_3-skin-joints-array" count="1" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="d3000monitor00_armature_d3000monitor00_3-skin-bind_poses">
+          <float_array id="d3000monitor00_armature_d3000monitor00_3-skin-bind_poses-array" count="16">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_armature_d3000monitor00_3-skin-bind_poses-array" count="1" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="d3000monitor00_armature_d3000monitor00_3-skin-weights">
+          <float_array id="d3000monitor00_armature_d3000monitor00_3-skin-weights-array" count="4">1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#d3000monitor00_armature_d3000monitor00_3-skin-weights-array" count="4" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#d3000monitor00_armature_d3000monitor00_3-skin-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#d3000monitor00_armature_d3000monitor00_3-skin-bind_poses"/>
+        </joints>
+        <vertex_weights count="4">
+          <input semantic="JOINT" source="#d3000monitor00_armature_d3000monitor00_3-skin-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#d3000monitor00_armature_d3000monitor00_3-skin-weights" offset="1"/>
+          <vcount>1 1 1 1 </vcount>
+          <v>0 0 0 1 0 2 0 3</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+  </library_controllers>
+  <library_visual_scenes>
+    <visual_scene id="Default" name="Default">
+      <node id="d3000monitor00_armature" name="d3000monitor00_armature" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <node id="d3000monitor00" name="d3000monitor00" sid="d3000monitor00" type="JOINT">
+          <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+          <node id="monitor00" name="monitor00" sid="monitor00" type="JOINT">
+            <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+          </node>
+          <node id="moni01" name="moni01" sid="moni01" type="JOINT">
+            <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+          </node>
+          <node id="noizu01" name="noizu01" sid="noizu01" type="JOINT">
+            <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+          </node>
+          <node id="noizu02" name="noizu02" sid="noizu02" type="JOINT">
+            <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+          </node>
+        </node>
+      </node>
+      <node id="d3000monitor00_0" name="d3000monitor00_0" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_controller url="#d3000monitor00_armature_d3000monitor00_0-skin">
+          <skeleton>#d3000monitor00</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="d3000monitor00_mat_000-material" target="#d3000monitor00_mat_000-material">
+                <bind_vertex_input semantic="d3000monitor00_0_001-mesh-map-0" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+      <node id="d3000monitor00_1" name="d3000monitor00_1" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_controller url="#d3000monitor00_armature_d3000monitor00_1-skin">
+          <skeleton>#d3000monitor00</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="d3000monitor00_mat_001-material" target="#d3000monitor00_mat_001-material">
+                <bind_vertex_input semantic="d3000monitor00_1_001-mesh-map-0" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+      <node id="d3000monitor00_2" name="d3000monitor00_2" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_controller url="#d3000monitor00_armature_d3000monitor00_2-skin">
+          <skeleton>#d3000monitor00</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="d3000monitor00_mat_002-material" target="#d3000monitor00_mat_002-material">
+                <bind_vertex_input semantic="d3000monitor00_2_001-mesh-map-0" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+      <node id="d3000monitor00_3" name="d3000monitor00_3" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_controller url="#d3000monitor00_armature_d3000monitor00_3-skin">
+          <skeleton>#d3000monitor00</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="d3000monitor00_mat_002-material" target="#d3000monitor00_mat_002-material">
+                <bind_vertex_input semantic="d3000monitor00_3_001-mesh-map-0" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Default"/>
+  </scene>
+</COLLADA>
