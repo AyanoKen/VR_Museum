@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 using TMPro;
 
 public class PlayerLevel2 : MonoBehaviour
@@ -15,6 +16,7 @@ public class PlayerLevel2 : MonoBehaviour
 
     public float eventDelay = 5f;
     public ParticleSystem[] event2VFX; 
+    public ParticleSystem climaxVFX;
     public string[] graveyardTexts;
 
     private GameObject spawnedEvent;
@@ -24,6 +26,7 @@ public class PlayerLevel2 : MonoBehaviour
     private int eventNumber = 2;
     private int currentTextIndex = 0;
     private bool letTombTrigger = true;
+    private VideoPlayer videoPlayer;
     
 
 
@@ -47,6 +50,11 @@ public class PlayerLevel2 : MonoBehaviour
             }
             
         }
+
+        if (videoPlayer != null && !videoPlayer.isPlaying)
+        {
+            HandleVideoEnd();
+        }
     }
 
     private void TriggerEvent(int eventNumber)
@@ -63,6 +71,9 @@ public class PlayerLevel2 : MonoBehaviour
                 break;
             case 3:
                 TriggerEvent3();
+                break;
+            case 4:
+                TriggerEvent4();
                 break;
             default:
                 break;
@@ -308,5 +319,27 @@ public class PlayerLevel2 : MonoBehaviour
     {
         isEventActive = true;
         spawnedEvent = Instantiate(objectPrefabs[eventNumber], new Vector3(transform.position.x, 0.6f, transform.position.z), Quaternion.identity);
+
+        videoPlayer = spawnedEvent.GetComponentInChildren<VideoPlayer>();
+    }
+
+    private void HandleVideoEnd()
+    {
+        climaxVFX.Play();
+
+        if (spawnedEvent != null)
+        {
+            Destroy(spawnedEvent);  // Destroy the monitors or related objects
+            Debug.Log("Monitors despawned after video ended.");
+        }
+
+        videoPlayer = null;  // Reset videoPlayer reference
+        eventNumber++;       // Increment event number to move to the next event
+        isEventActive = false; // Allow next event to trigger
+    }
+
+    private void TriggerEvent4()
+    {
+        return;
     }
 }
