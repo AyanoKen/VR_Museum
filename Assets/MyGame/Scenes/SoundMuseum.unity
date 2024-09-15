@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 3fb2ebdff8441e546b758ac5a0ad7e3f, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -5127,7 +5127,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.53
+  m_Intensity: 3.37
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -5186,7 +5186,7 @@ Transform:
   m_GameObject: {fileID: 1416510944}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40544692, y: 0.23932733, z: -0.70747256, w: 0.5270843}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 13.06, y: 10.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5204,7 +5204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 0.53
+  m_Intensity: 3.37
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -5375,7 +5375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3486773632755068742, guid: a0b7c444ac1cc834dacfe3d917e088b0, type: 3}
       propertyPath: objectPrefabs.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3486773632755068742, guid: a0b7c444ac1cc834dacfe3d917e088b0, type: 3}
       propertyPath: graveyardTexts.Array.size
@@ -5385,6 +5385,10 @@ PrefabInstance:
       propertyPath: objectPrefabs.Array.data[2]
       value: 
       objectReference: {fileID: 1873924695026081297, guid: 3f334ba22719dc845bd8aeda65fc6caa, type: 3}
+    - target: {fileID: 3486773632755068742, guid: a0b7c444ac1cc834dacfe3d917e088b0, type: 3}
+      propertyPath: objectPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 3849094376858929011, guid: 4b77c8950c8d3854ba13444b89c7628b, type: 3}
     - target: {fileID: 3486773632755068742, guid: a0b7c444ac1cc834dacfe3d917e088b0, type: 3}
       propertyPath: graveyardTexts.Array.data[0]
       value: I rest here

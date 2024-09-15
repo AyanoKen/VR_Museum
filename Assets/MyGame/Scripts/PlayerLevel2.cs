@@ -21,7 +21,7 @@ public class PlayerLevel2 : MonoBehaviour
     private GameObject spawnedGuide;
     private AudioSource playerAudioSource;
     private bool isEventActive = true;
-    private int eventNumber = 0;
+    private int eventNumber = 2;
     private int currentTextIndex = 0;
     private bool letTombTrigger = true;
     
@@ -235,7 +235,7 @@ public class PlayerLevel2 : MonoBehaviour
     private void TriggerEvent2() //Graveyard Scene
     {
         isEventActive = true;
-        spawnedEvent = Instantiate(objectPrefabs[2], new Vector3(transform.position.x - 9f, 0.6f, transform.position.z - 15f), Quaternion.identity);
+        spawnedEvent = Instantiate(objectPrefabs[2], new Vector3(transform.position.x + 9f, 0.6f, transform.position.z + 15f), Quaternion.identity);
     }
 
     public void HandleTombstoneCollision(GameObject tombstone)
@@ -284,7 +284,7 @@ public class PlayerLevel2 : MonoBehaviour
                 Destroy(child.gameObject);
 
                 // Wait for some time before despawning the next one
-                yield return new WaitForSeconds(0.5f); 
+                yield return new WaitForSeconds(0.1f); 
             }
         }
 
@@ -306,6 +306,7 @@ public class PlayerLevel2 : MonoBehaviour
 
     private void TriggerEvent3()
     {
-        return;
+        isEventActive = true;
+        spawnedEvent = Instantiate(objectPrefabs[eventNumber], new Vector3(transform.position.x, 0.6f, transform.position.z), Quaternion.identity);
     }
 }
