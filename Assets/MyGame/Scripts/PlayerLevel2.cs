@@ -21,7 +21,7 @@ public class PlayerLevel2 : MonoBehaviour
     private GameObject spawnedGuide;
     private AudioSource playerAudioSource;
     private bool isEventActive = true;
-    private int eventNumber = 2;
+    private int eventNumber = 0;
     private int currentTextIndex = 0;
     private bool letTombTrigger = true;
     
@@ -285,6 +285,7 @@ public class PlayerLevel2 : MonoBehaviour
 
                 // Wait for some time before despawning the next one
                 yield return new WaitForSeconds(0.5f); 
+            }
         }
 
         // After all tombstones are despawned, destroy the remaining objects like spotlights and plane
@@ -299,6 +300,7 @@ public class PlayerLevel2 : MonoBehaviour
         Destroy(spawnedEvent);
         Debug.Log("All tombstones and remaining objects have been despawned.");
 
+        eventNumber++;
         isEventActive = false;
     }
 
