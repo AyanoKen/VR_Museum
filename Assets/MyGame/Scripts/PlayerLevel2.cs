@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerLevel2 : MonoBehaviour
 {
-    private bool isEventActive = true;
-    private int eventNumber = 0;
     public AudioClip[] audioClips;
 
     public GameObject[] objectPrefabs;
@@ -14,12 +13,18 @@ public class PlayerLevel2 : MonoBehaviour
     public GameObject guide; 
     public float firstEventDelay = 5f;  
 
-    public float eventDelay = 10f;
+    public float eventDelay = 5f;
     public ParticleSystem[] event2VFX; 
+    public string[] graveyardTexts;
 
     private GameObject spawnedEvent;
     private GameObject spawnedGuide;
     private AudioSource playerAudioSource;
+    private bool isEventActive = true;
+    private int eventNumber = 0;
+    private bool endEvent2 = false;
+    private int currentTextIndex = 0;
+    
 
 
     private void Start()
@@ -39,6 +44,11 @@ public class PlayerLevel2 : MonoBehaviour
             CheckDespawnDistance();
         }
         
+        if (eventNumber == 2){
+            if (endEvent2){
+                //Code for ending Event 2
+            }
+        }
     }
 
     private void TriggerEvent(int eventNumber)
@@ -183,7 +193,7 @@ public class PlayerLevel2 : MonoBehaviour
         {
             playground.SetActive(false);
             ruinedPlayground.SetActive(true);
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(0.2f);
             ruinedPlayground.SetActive(false);
             playground.SetActive(true);
             yield return new WaitForSeconds(5f);
@@ -209,7 +219,7 @@ public class PlayerLevel2 : MonoBehaviour
 
         Debug.Log("Transitioned to the ruined playground with cries.");
 
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSeconds(30f);
 
         foreach (ParticleSystem ps in event2VFX)
         {
@@ -220,10 +230,35 @@ public class PlayerLevel2 : MonoBehaviour
 
         Destroy(ruinedPlayground);
         eventNumber++;
-        StartCoroutine(EnableEventsAfterDelay()); //Enable events again after incrementing eventNumber :)
+        isEventActive = false; //Enable Events again, no delay this time
+        Debug.Log("Activated the events logic");
     }
 
-    private void TriggerEvent2()
+    private void TriggerEvent2() //Graveyard Scene
+    {
+        isEventActive = true;
+        spawnedEvent = Instantiate(objectPrefabs[eventNumber], transform.position, Quaternion.identity);
+    }
+
+    public void HandleTombstoneCollision(GameObject tombstone)
+    {
+        TMP_Text tombstoneText = tombstone.GetComponentInChildren<TMP_Text>();
+
+        if (tombstoneText != null && graveyardTexts.Length > 0)
+        {
+            tombstoneText.text = graveyardTexts[currentTextIndex];
+            
+            currentTextIndex++;
+
+            // Check if we've reached the end of the array
+            if (currentTextIndex >= graveyardTexts.Length)
+            {
+                Event2End();
+            }
+        }
+    }
+
+    private void Event2End()
     {
         return;
     }

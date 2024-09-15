@@ -69,14 +69,14 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _GlowIntensity: 1
-    - _Intensity: 100
-    - _MaxDotSize: 2
+    - _Intensity: 0.26
+    - _MaxDotSize: 1
     - _Metallic: 0
     - _MinDotSize: 0.05
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Scale: 40
+    - _Scale: 100
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _Speed: 0.1
