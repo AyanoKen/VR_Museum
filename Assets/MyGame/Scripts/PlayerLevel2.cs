@@ -22,7 +22,6 @@ public class PlayerLevel2 : MonoBehaviour
     private AudioSource playerAudioSource;
     private bool isEventActive = true;
     private int eventNumber = 2;
-    private bool endEvent2 = false;
     private int currentTextIndex = 0;
     private bool letTombTrigger = true;
     
@@ -47,12 +46,6 @@ public class PlayerLevel2 : MonoBehaviour
                 CheckDespawnDistance();
             }
             
-        }
-        
-        if (eventNumber == 2){
-            if (endEvent2){
-                //Code for ending Event 2
-            }
         }
     }
 
@@ -262,7 +255,7 @@ public class PlayerLevel2 : MonoBehaviour
                 // Check if we've reached the end of the array
                 if (currentTextIndex >= graveyardTexts.Length)
                 {
-                    Event2End();
+                    StartCoroutine(DespawnTombstones());
                 } 
                 else 
                 {
@@ -279,9 +272,34 @@ public class PlayerLevel2 : MonoBehaviour
         letTombTrigger = true;
     }
 
-    private void Event2End()
+    private IEnumerator DespawnTombstones()
     {
-        return;
+        // Get all the children of the graveyard
+        foreach (Transform child in spawnedEvent.transform)
+        {
+            // Check if the child has the tag "TombStone"
+            if (child.CompareTag("TombStone"))
+            {
+                // Despawn the tombstone (you can play an animation or simply destroy it)
+                Destroy(child.gameObject);
+
+                // Wait for some time before despawning the next one
+                yield return new WaitForSeconds(0.5f); 
+        }
+
+        // After all tombstones are despawned, destroy the remaining objects like spotlights and plane
+        foreach (Transform child in spawnedEvent.transform)
+        {
+            if (!child.CompareTag("TombStone"))  // Destroy anything that is NOT a tombstone
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        
+        Destroy(spawnedEvent);
+        Debug.Log("All tombstones and remaining objects have been despawned.");
+
+        isEventActive = false;
     }
 
     private void TriggerEvent3()
