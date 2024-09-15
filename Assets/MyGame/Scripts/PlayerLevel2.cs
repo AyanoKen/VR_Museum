@@ -21,9 +21,10 @@ public class PlayerLevel2 : MonoBehaviour
     private GameObject spawnedGuide;
     private AudioSource playerAudioSource;
     private bool isEventActive = true;
-    private int eventNumber = 0;
+    private int eventNumber = 2;
     private bool endEvent2 = false;
     private int currentTextIndex = 0;
+    private bool letTombTrigger = true;
     
 
 
@@ -41,7 +42,11 @@ public class PlayerLevel2 : MonoBehaviour
 
         if (spawnedEvent != null)
         {
-            CheckDespawnDistance();
+            if(eventNumber == 0)
+            {
+                CheckDespawnDistance();
+            }
+            
         }
         
         if (eventNumber == 2){
@@ -237,25 +242,41 @@ public class PlayerLevel2 : MonoBehaviour
     private void TriggerEvent2() //Graveyard Scene
     {
         isEventActive = true;
-        spawnedEvent = Instantiate(objectPrefabs[eventNumber], transform.position, Quaternion.identity);
+        spawnedEvent = Instantiate(objectPrefabs[2], new Vector3(transform.position.x - 9f, 0.6f, transform.position.z - 15f), Quaternion.identity);
     }
 
     public void HandleTombstoneCollision(GameObject tombstone)
     {
-        TMP_Text tombstoneText = tombstone.GetComponentInChildren<TMP_Text>();
-
-        if (tombstoneText != null && graveyardTexts.Length > 0)
+        if (letTombTrigger)
         {
-            tombstoneText.text = graveyardTexts[currentTextIndex];
-            
-            currentTextIndex++;
+            TMP_Text tombstoneText = tombstone.GetComponentInChildren<TMP_Text>();
 
-            // Check if we've reached the end of the array
-            if (currentTextIndex >= graveyardTexts.Length)
+            if (tombstoneText != null && graveyardTexts.Length > 0)
             {
-                Event2End();
+                tombstoneText.text = graveyardTexts[currentTextIndex];
+                
+                currentTextIndex++;
+
+                letTombTrigger = false;
+
+                // Check if we've reached the end of the array
+                if (currentTextIndex >= graveyardTexts.Length)
+                {
+                    Event2End();
+                } 
+                else 
+                {
+                    StartCoroutine(EnableTombsAfterDelay());
+                }
             }
         }
+        
+    }
+
+    private IEnumerator EnableTombsAfterDelay()
+    {
+        yield return new WaitForSeconds(5f);
+        letTombTrigger = true;
     }
 
     private void Event2End()

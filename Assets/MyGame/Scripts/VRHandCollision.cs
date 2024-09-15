@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class VRHandCollision : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public PlayerLevel2 playerScript;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        Debug.Log("Collision Detected");
+        if (collision.gameObject.CompareTag("TombStone"))
+        {
+            playerScript.HandleTombstoneCollision(collision.gameObject);
+        }
     }
 }
