@@ -26,7 +26,8 @@ public class VRHandCollision : MonoBehaviour
 
     private void LoadLevel2()
     {
-        SceneManager.LoadScene("LightMuseum"); 
-        Debug.Log("Loading Level 1");
+        Debug.Log("Ending game");
+        Application.Quit();
+        
     }
 }

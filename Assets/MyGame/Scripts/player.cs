@@ -60,7 +60,7 @@ public class player : MonoBehaviour
 
             if (currentIndex == 4)
             {
-                guideAudio.clip = modelAudioClips[i];
+                guideAudio.clip = modelAudioClips[4];
                 guideAudio.Play();
             }
 
@@ -151,7 +151,7 @@ public class player : MonoBehaviour
 
                     if (modelAudioClips.Length > i && guideAudio != null)
                     {
-                        if (currentIndex != 4){
+                        if (i != 4){
                             guideAudio.clip = modelAudioClips[i];
                             guideAudio.Play();
 

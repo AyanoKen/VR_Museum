@@ -24,7 +24,7 @@ public class PlayerLevel2 : MonoBehaviour
     private GameObject spawnedGuide;
     private AudioSource playerAudioSource;
     private bool isEventActive = true;
-    private int eventNumber = 2;
+    private int eventNumber = 0;
     private int currentTextIndex = 0;
     private bool letTombTrigger = true;
     private VideoPlayer videoPlayer;
@@ -202,11 +202,11 @@ public class PlayerLevel2 : MonoBehaviour
         
         for (int i = 0; i < 3; i++)  //Glitch the playground scene. 5 seconds breathing time
         {
-            playground.SetActive(false);
+            // playground.SetActive(false);
             ruinedPlayground.SetActive(true);
             yield return new WaitForSeconds(0.2f);
             ruinedPlayground.SetActive(false);
-            playground.SetActive(true);
+            //playground.SetActive(true);
             yield return new WaitForSeconds(5f);
         }
 
