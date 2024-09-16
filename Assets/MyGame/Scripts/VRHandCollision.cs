@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class VRHandCollision : MonoBehaviour
 {
@@ -13,5 +14,19 @@ public class VRHandCollision : MonoBehaviour
         {
             playerScript.HandleTombstoneCollision(collision.gameObject);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Door")) 
+        {
+            LoadLevel2();
+        }
+    }
+
+    private void LoadLevel2()
+    {
+        SceneManager.LoadScene("LightMuseum"); 
+        Debug.Log("Loading Level 1");
     }
 }

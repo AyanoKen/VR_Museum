@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+
 using TMPro;
 
 public class PlayerLevel2 : MonoBehaviour
@@ -27,6 +28,7 @@ public class PlayerLevel2 : MonoBehaviour
     private int currentTextIndex = 0;
     private bool letTombTrigger = true;
     private VideoPlayer videoPlayer;
+    private bool videoEnd = false;
     
 
 
@@ -51,7 +53,7 @@ public class PlayerLevel2 : MonoBehaviour
             
         }
 
-        if (videoPlayer != null && !videoPlayer.isPlaying)
+        if (videoPlayer != null && !videoPlayer.isPlaying && videoEnd)
         {
             HandleVideoEnd();
         }
@@ -321,6 +323,14 @@ public class PlayerLevel2 : MonoBehaviour
         spawnedEvent = Instantiate(objectPrefabs[eventNumber], new Vector3(transform.position.x, 0.6f, transform.position.z), Quaternion.identity);
 
         videoPlayer = spawnedEvent.GetComponentInChildren<VideoPlayer>();
+
+        StartCoroutine(EnableVideoEnd());
+    }
+
+    private IEnumerator EnableVideoEnd()
+    {
+        yield return new WaitForSeconds(10f);
+        videoEnd = true;
     }
 
     private void HandleVideoEnd()
@@ -335,11 +345,14 @@ public class PlayerLevel2 : MonoBehaviour
 
         videoPlayer = null;  // Reset videoPlayer reference
         eventNumber++;       // Increment event number to move to the next event
-        isEventActive = false; // Allow next event to trigger
+        StartCoroutine(EnableEventsAfterDelay());
     }
 
     private void TriggerEvent4()
     {
-        return;
+        isEventActive = true;
+        spawnedEvent = Instantiate(objectPrefabs[eventNumber], new Vector3(transform.position.x, 0.8f, transform.position.z), Quaternion.identity);
     }
+
+    
 }

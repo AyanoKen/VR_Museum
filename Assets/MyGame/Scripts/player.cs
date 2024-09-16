@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class player : MonoBehaviour
 {
@@ -55,6 +56,12 @@ public class player : MonoBehaviour
             {
                 
                 StartCoroutine(EnableModelScriptAfterNarration());
+            }
+
+            if (currentIndex == 4)
+            {
+                guideAudio.clip = modelAudioClips[i];
+                guideAudio.Play();
             }
 
             
@@ -144,10 +151,16 @@ public class player : MonoBehaviour
 
                     if (modelAudioClips.Length > i && guideAudio != null)
                     {
-                        guideAudio.clip = modelAudioClips[i];
-                        guideAudio.Play();
+                        if (currentIndex != 4){
+                            guideAudio.clip = modelAudioClips[i];
+                            guideAudio.Play();
 
-                        StartCoroutine(WaitForAudioToEnd());
+                            StartCoroutine(WaitForAudioToEnd());
+                        }else {
+                            SceneManager.LoadScene("SoundMuseum"); 
+                            Debug.Log("Loading Level 2");
+                        }
+                        
                     }
                     break;
                 }
