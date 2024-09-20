@@ -76,8 +76,10 @@ public class Script_Ensemble : MonoBehaviour
             materialIndex = 3;
         }
 
+        AssignRandomMaterials();
+
         
-        for (int i = 0; i < childRenderers.Length; i++)
+        for (int i = 0; i < 2; i++)
         {
             if (childRenderers[i] != null)
             {
@@ -86,36 +88,20 @@ public class Script_Ensemble : MonoBehaviour
         }
     }
 
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     if (other.CompareTag("Player"))
-    //     {
-    //         AssignRandomMaterials();
-    //     }
-    // }
-
-    // private void OnTriggerExit(Collider other)
-    // {
-    //     if (other.CompareTag("Player"))
-    //     {
-    //         ResetMaterialsToDefault();
-    //     }
-    // }
-
-    // private void AssignRandomMaterials()
-    // {
+    private void AssignRandomMaterials()
+    {
         
-    //     Material[] shuffledMaterials = ShuffleMaterials(randomMaterials);
+        Material[] shuffledMaterials = ShuffleMaterials(randomMaterials);
 
         
-    //     for (int i = 0; i < childRenderers.Length; i++)
-    //     {
-    //         if (childRenderers[i] != null)
-    //         {
-    //             childRenderers[i].material = shuffledMaterials[i];
-    //         }
-    //     }
-    // }
+        for (int i = 0; i < childRenderers.Length; i++)
+        {
+            if (childRenderers[i] != null)
+            {
+                childRenderers[i].material = shuffledMaterials[i];
+            }
+        }
+    }
 
     // private void ResetMaterialsToDefault()
     // {
@@ -129,20 +115,20 @@ public class Script_Ensemble : MonoBehaviour
     //     }
     // }
 
-    // private Material[] ShuffleMaterials(Material[] materials)
-    // {
+    private Material[] ShuffleMaterials(Material[] materials)
+    {
         
-    //     Material[] shuffledMaterials = (Material[])materials.Clone();
+        Material[] shuffledMaterials = (Material[])materials.Clone();
 
         
-    //     for (int i = shuffledMaterials.Length - 1; i > 0; i--)
-    //     {
-    //         int randomIndex = Random.Range(0, i + 1);
-    //         Material temp = shuffledMaterials[i];
-    //         shuffledMaterials[i] = shuffledMaterials[randomIndex];
-    //         shuffledMaterials[randomIndex] = temp;
-    //     }
+        for (int i = shuffledMaterials.Length - 1; i > 0; i--)
+        {
+            int randomIndex = Random.Range(0, i + 1);
+            Material temp = shuffledMaterials[i];
+            shuffledMaterials[i] = shuffledMaterials[randomIndex];
+            shuffledMaterials[randomIndex] = temp;
+        }
 
-    //     return shuffledMaterials;
-    // }
+        return shuffledMaterials;
+    }
 }

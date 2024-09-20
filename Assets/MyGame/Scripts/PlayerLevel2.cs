@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+
 using TMPro;
 
 public class PlayerLevel2 : MonoBehaviour
@@ -23,10 +24,11 @@ public class PlayerLevel2 : MonoBehaviour
     private GameObject spawnedGuide;
     private AudioSource playerAudioSource;
     private bool isEventActive = true;
-    private int eventNumber = 2;
+    private int eventNumber = 0;
     private int currentTextIndex = 0;
     private bool letTombTrigger = true;
     private VideoPlayer videoPlayer;
+    private bool videoEnd = false;
     
 
 
@@ -51,7 +53,7 @@ public class PlayerLevel2 : MonoBehaviour
             
         }
 
-        if (videoPlayer != null && !videoPlayer.isPlaying)
+        if (videoPlayer != null && !videoPlayer.isPlaying && videoEnd)
         {
             HandleVideoEnd();
         }
@@ -200,11 +202,11 @@ public class PlayerLevel2 : MonoBehaviour
         
         for (int i = 0; i < 3; i++)  //Glitch the playground scene. 5 seconds breathing time
         {
-            playground.SetActive(false);
+            // playground.SetActive(false);
             ruinedPlayground.SetActive(true);
             yield return new WaitForSeconds(0.2f);
             ruinedPlayground.SetActive(false);
-            playground.SetActive(true);
+            //playground.SetActive(true);
             yield return new WaitForSeconds(5f);
         }
 
@@ -321,6 +323,14 @@ public class PlayerLevel2 : MonoBehaviour
         spawnedEvent = Instantiate(objectPrefabs[eventNumber], new Vector3(transform.position.x, 0.6f, transform.position.z), Quaternion.identity);
 
         videoPlayer = spawnedEvent.GetComponentInChildren<VideoPlayer>();
+
+        StartCoroutine(EnableVideoEnd());
+    }
+
+    private IEnumerator EnableVideoEnd()
+    {
+        yield return new WaitForSeconds(10f);
+        videoEnd = true;
     }
 
     private void HandleVideoEnd()
@@ -335,11 +345,14 @@ public class PlayerLevel2 : MonoBehaviour
 
         videoPlayer = null;  // Reset videoPlayer reference
         eventNumber++;       // Increment event number to move to the next event
-        isEventActive = false; // Allow next event to trigger
+        StartCoroutine(EnableEventsAfterDelay());
     }
 
     private void TriggerEvent4()
     {
-        return;
+        isEventActive = true;
+        spawnedEvent = Instantiate(objectPrefabs[eventNumber], new Vector3(transform.position.x, 0.8f, transform.position.z), Quaternion.identity);
     }
+
+    
 }
