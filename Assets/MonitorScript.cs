@@ -6,10 +6,11 @@ public class MonitorScript : MonoBehaviour
 {
     public GameObject Monitors;
     public ParticleSystem[] MonitorVFX;
+    public GameObject selfReference;
     
     void OnTriggerEnter(Collider other) 
     {
-        if (other.gameObject.CompareTag("player"))
+        if (other.gameObject.CompareTag("Player"))
         {
 
             GetComponent<Animator>().SetTrigger("TriggerVFX");
@@ -31,6 +32,6 @@ public class MonitorScript : MonoBehaviour
 
         yield return new WaitForSeconds(4f);
         
-        Destory(this);
+        Destroy(selfReference);
     }
 }
