@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class VRHandCollision : MonoBehaviour
 {
-    public PlayerLevel2 playerScript;
+    public GraveyardScript playerScript;
 
     private void OnCollisionEnter(Collision collision)
     {
