@@ -9,7 +9,10 @@ public class PerformanceManny : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Event.SetActive(true);
+            if (!Event.activeSelf)
+            {
+                Event.SetActive(true);
+            }
         } 
     }
 
